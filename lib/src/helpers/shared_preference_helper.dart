@@ -4,6 +4,18 @@ import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesHelper {
+
+
+  static Future<bool> setTheme(String theme) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.setString("theme", theme);
+  }
+
+  static Future<String> getTheme() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString("theme") ?? "light";
+  }
+
   static Future<bool> setLoginFlag(bool flag) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.setBool("isLoggedIn", flag);
@@ -13,7 +25,6 @@ class SharedPreferencesHelper {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getBool("isLoggedIn") ?? false;
   }
-
 
   static Future<bool> setAccountsType(String accountsType) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -74,7 +85,6 @@ class SharedPreferencesHelper {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString("user_mobile_no") ?? '';
   }
-
 
   static Future<bool> setUserAddress(String user_address) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();

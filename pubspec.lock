@@ -102,6 +102,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_hooks:
+    dependency: transitive
+    description:
+      name: flutter_hooks
+      sha256: "6ae13b1145c589112cbd5c4fda6c65908993a9cb18d4f82042e9c28dd9fbf611"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.20.1"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -110,6 +118,19 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  flutter_localizations:
+    dependency: "direct main"
+    description: flutter
+    source: sdk
+    version: "0.0.0"
+  flutter_riverpod:
+    dependency: "direct main"
+    description:
+      name: flutter_riverpod
+      sha256: fcea39b84b666649280f6f678bc0bb479253bf865abc0387a8b11dac6477bf92
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -120,6 +141,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  freezed_annotation:
+    dependency: "direct main"
+    description:
+      name: freezed_annotation
+      sha256: "02d17a242f724828a7c820921dbe92c66fe685d6bef3d7450dc556fa79e033ce"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.15.0"
+  hooks_riverpod:
+    dependency: "direct main"
+    description:
+      name: hooks_riverpod
+      sha256: a5242fee89736eaf7e5565c271e2d87b0aeb9953ee936de819339366aebc6882
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.1"
   html:
     dependency: transitive
     description:
@@ -144,6 +181,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  intl:
+    dependency: "direct main"
+    description:
+      name: intl
+      sha256: a3715e3bc90294e971cb7dc063fbf3cd9ee0ebf8604ffeafabd9e6f16abbdbe6
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.18.0"
   js:
     dependency: transitive
     description:
@@ -152,6 +197,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.7"
+  json_annotation:
+    dependency: "direct main"
+    description:
+      name: json_annotation
+      sha256: b10a7b2ff83d83c777edba3c6a0f97045ddadd56c944e1a23a3fdf43a1bf4467
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.8.1"
   lints:
     dependency: transitive
     description:
@@ -232,6 +285,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.6"
+  riverpod:
+    dependency: transitive
+    description:
+      name: riverpod
+      sha256: ff676bd8a715c7085692fe4919564f78fb90d33b10a1c5c14e740581857cc914
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.1"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -309,6 +370,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
+  state_notifier:
+    dependency: transitive
+    description:
+      name: state_notifier
+      sha256: b8677376aa54f2d7c58280d5a007f9e8774f1968d1fb1c096adcb4792fba29bb
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   stream_channel:
     dependency: transitive
     description:
