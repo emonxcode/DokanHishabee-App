@@ -14,34 +14,23 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final themeModeState = ref.read(themesProvider);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Flutter Theming Riverpod Demo",
-          style: TextStyle(fontSize: 18),
-        ),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.teal,
-        actions: [
-          PopupMenuButton<SupportedLocale>(
-            itemBuilder: (context) {
-              return SupportedLocale.values
-                  .map<PopupMenuEntry<SupportedLocale>>((e) => PopupMenuItem(
-                        child: Text('${e.name}'),
-                        value: e,
-                      ))
-                  .toList();
-            },
-            onSelected: (locale) {
-              ref.read(localeProvider.notifier).changeLanguage(locale);
-            },
-          ),
-        ],
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            PopupMenuButton<SupportedLocale>(
+              itemBuilder: (context) {
+                return SupportedLocale.values
+                    .map<PopupMenuEntry<SupportedLocale>>((e) => PopupMenuItem(
+                          child: Text('${e.name}'),
+                          value: e,
+                        ))
+                    .toList();
+              },
+              onSelected: (locale) {
+                ref.read(localeProvider.notifier).changeLanguage(locale);
+              },
+            ),
             Text('${LocalizationHelper.of(context)!.description}',
                 textAlign: TextAlign.start,
                 style: Theme.of(context).textTheme.headlineSmall),
