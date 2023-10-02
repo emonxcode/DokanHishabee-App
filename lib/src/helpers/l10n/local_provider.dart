@@ -1,10 +1,8 @@
 import 'dart:ui';
-
 import 'package:amar_dokan_app/src/helpers/l10n/local_extension.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../constants/enums.dart';
-import 'local_pref.dart';
+import '../shared_preference_helper.dart';
 
 class LocaleNotifier extends StateNotifier<Locale> {
   LocaleNotifier() : super(Locale('en')) {
@@ -13,7 +11,7 @@ class LocaleNotifier extends StateNotifier<Locale> {
 
   void changeLanguage(SupportedLocale locale) {
     try {
-      AppSharedPreference.saveLocale(locale);
+      SharedPreferencesHelper.saveLocale(locale);
       state = Locale(locale.code);
     } catch (error) {
       state = Locale('en');
@@ -22,7 +20,7 @@ class LocaleNotifier extends StateNotifier<Locale> {
 
   void onAppStart() {
     try {
-      final locale = AppSharedPreference.getLocale();
+      final locale = SharedPreferencesHelper.getLocale();
       state = locale;
     } catch (error) {
       state = Locale('en');

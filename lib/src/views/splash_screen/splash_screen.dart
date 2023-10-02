@@ -1,6 +1,8 @@
 import 'package:amar_dokan_app/src/views/home.dart';
 import 'package:flutter/material.dart';
 
+import '../navigation/side_navigation_screen.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -17,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
       (value) => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => HomeScreen(),
+          builder: (context) => SideNavigation(),
         ),
       ),
     );

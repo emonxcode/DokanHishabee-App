@@ -1,6 +1,7 @@
 import 'package:amar_dokan_app/src/helpers/l10n/local_helper.dart';
-import 'package:amar_dokan_app/src/helpers/l10n/local_pref.dart';
 import 'package:amar_dokan_app/src/helpers/l10n/local_provider.dart';
+import 'package:amar_dokan_app/src/helpers/shared_preference_helper.dart';
+import 'package:amar_dokan_app/src/views/navigation/side_navigation_screen.dart';
 import 'package:amar_dokan_app/src/views/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -10,7 +11,7 @@ import 'src/helpers/themes/themes_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await AppSharedPreference.init();
+  await SharedPreferencesHelper.init();
   runApp(ProviderScope(child: MyApp()));
 }
 
@@ -38,7 +39,7 @@ class MyApp extends ConsumerWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
       debugShowCheckedModeBanner: false,
-       home: SplashScreen()
+       home: SideNavigation()
     );
   }
 }

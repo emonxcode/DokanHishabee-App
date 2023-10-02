@@ -5,8 +5,8 @@ import '../helpers/l10n/local_helper.dart';
 import '../helpers/l10n/local_provider.dart';
 import '../helpers/themes/themes_provider.dart';
 
-class HomeScreen extends ConsumerWidget {
-  const HomeScreen({
+class HomeScreenTwo extends ConsumerWidget {
+  const HomeScreenTwo({
     Key? key,
   }) : super(key: key);
 
@@ -16,7 +16,7 @@ class HomeScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Flutter Theming Riverpod Demo",
+          "Home Two",
           style: TextStyle(fontSize: 18),
         ),
         centerTitle: true,
@@ -44,7 +44,7 @@ class HomeScreen extends ConsumerWidget {
           children: [
             Text('${LocalizationHelper.of(context)!.description}',
                 textAlign: TextAlign.start,
-                style: Theme.of(context).textTheme.headlineSmall),
+                style: Theme.of(context).textTheme.headline5),
             Text(
               "Change Theme $themeModeState",
               style: const TextStyle(fontSize: 18),
