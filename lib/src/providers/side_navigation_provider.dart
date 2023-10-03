@@ -9,7 +9,7 @@ final sideNavigationProvider = StateNotifierProvider.autoDispose<
 class SideNavigationState {
   SideNavigationState({required this.sideView});
   Widget? sideView = HomeScreen();
-  List<int>? menuColorValue = [0, 0, 0, 0, 0, 0, 0];
+  List<int>? menuColorValue = [1, 0, 0, 0, 0, 0, 0];
 }
 
 class SideNavigationProvider extends StateNotifier<SideNavigationState> {

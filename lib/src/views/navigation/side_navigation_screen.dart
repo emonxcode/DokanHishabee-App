@@ -63,7 +63,7 @@ class SideNavigation extends ConsumerWidget {
                   flex: 85,
                   child: Container(
                     color: Colors.white,
-                    child: state.sideView,
+                    child: state.sideView!,
                   ),
                 ),
               ],

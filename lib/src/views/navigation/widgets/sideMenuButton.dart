@@ -26,7 +26,9 @@ class SideMenuButton extends ConsumerWidget {
     return InkWell(
       onTap: () {
         ref.read(sideNavigationProvider.notifier).changeSideView(screen);
-        ref.read(sideNavigationProvider.notifier).setColorValue(menuColorIndex);
+        ref
+            .read(sideNavigationProvider.notifier)
+            .setColorValue(menuColorIndex);
       },
       child: Container(
         height: context.height * .115,
