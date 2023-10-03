@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../constants/enums.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../helpers/constants/enums.dart';
 import '../helpers/l10n/local_helper.dart';
 import '../helpers/l10n/local_provider.dart';
 import '../helpers/themes/themes_provider.dart';

@@ -1,7 +1,8 @@
 import 'dart:ui';
 import 'package:amar_dokan_app/src/helpers/l10n/local_extension.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../constants/enums.dart';
+
+import '../constants/enums.dart';
 import '../shared_preference_helper.dart';
 
 class LocaleNotifier extends StateNotifier<Locale> {

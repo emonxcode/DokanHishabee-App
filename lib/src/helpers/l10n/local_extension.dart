@@ -1,4 +1,5 @@
-import '../../constants/enums.dart';
+
+import '../constants/enums.dart';
 
 extension SupportedLocalExtension on SupportedLocale {
   String get code => this.toString().split('.').last;

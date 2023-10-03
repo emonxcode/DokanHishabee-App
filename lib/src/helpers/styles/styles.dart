@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class Styles {
   static TextStyle defaultStyle = TextStyle(color: Colors.blue);
 
-  static TextStyle h1 = defaultStyle.copyWith(
+  static TextStyle sideMenuLabel = defaultStyle.copyWith(
     fontWeight: FontWeight.bold,
-    fontSize: 28.0,
+    fontSize: 12.0,
   );
 
   static TextStyle p =

@@ -1,9 +1,12 @@
+import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
 import 'package:amar_dokan_app/src/helpers/utils/app_space.dart';
 import 'package:amar_dokan_app/src/providers/side_navigation_provider.dart';
 import 'package:amar_dokan_app/src/views/home.dart';
 import 'package:amar_dokan_app/src/views/home_two.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'widgets/sideMenuButton.dart';
 
 class SideNavigation extends ConsumerWidget {
   const SideNavigation({super.key});
@@ -14,10 +17,10 @@ class SideNavigation extends ConsumerWidget {
       body: Consumer(
         builder: (context, s_ref, child) {
           var state = s_ref.watch(sideNavigationProvider);
-          print(state.sideView);
+
           return Container(
-            height: MediaQuery.sizeOf(context).height,
-            width: MediaQuery.sizeOf(context).width,
+            height: context.height,
+            width: context.width,
             child: Row(
               children: [
                 Expanded(
@@ -30,136 +33,26 @@ class SideNavigation extends ConsumerWidget {
                       child: Column(
                         children: [
                           AppSpace.spaceH20,
-                          InkWell(
-                            onTap: () {
-                              ref
-                                  .read(sideNavigationProvider.notifier)
-                                  .changeSideView(HomeScreen());
-                            },
-                            child: Container(
-                              height: 110,
-                              width: double.infinity,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.home,
-                                    size: 30,
-                                    color: Colors.white,
-                                  ),
-                                  Text(
-                                    "HOME",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ),
+                          SideMenuButton(
+                            menuColorValue: state.menuColorValue![0],
+                            menuColorIndex: 0,
+                            icon: Icons.home,
+                            label: "HOME",
+                            screen: HomeScreen(),
                           ),
-                          InkWell(
-                            onTap: () {
-                              ref
-                                  .read(sideNavigationProvider.notifier)
-                                  .changeSideView(HomeScreenTwo());
-                            },
-                            child: Container(
-                              height: 110,
-                              width: double.infinity,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.shopping_cart,
-                                    size: 30,
-                                    color: Colors.lightGreen,
-                                  ),
-                                  AppSpace.spaceH4,
-                                  Text(
-                                    "CART",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.lightGreen,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ),
+                          SideMenuButton(
+                            menuColorValue: state.menuColorValue![1],
+                            menuColorIndex: 1,
+                            icon: Icons.shopping_cart,
+                            label: "CART",
+                            screen: HomeScreenTwo(),
                           ),
-                          InkWell(
-                            onTap: () {
-                              ref
-                                  .read(sideNavigationProvider.notifier)
-                                  .changeSideView(HomeScreenTwo());
-                            },
-                            child: Container(
-                              height: 110,
-                              width: double.infinity,
-                              child: Center(
-                                child: Icon(
-                                  size: 30,
-                                  Icons.shopping_bag,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              ref
-                                  .read(sideNavigationProvider.notifier)
-                                  .changeSideView(HomeScreenTwo());
-                            },
-                            child: Container(
-                              height: 110,
-                              width: double.infinity,
-                              child: Center(
-                                child: Icon(
-                                  size: 30,
-                                  Icons.report,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              ref
-                                  .read(sideNavigationProvider.notifier)
-                                  .changeSideView(HomeScreenTwo());
-                            },
-                            child: Container(
-                              height: 110,
-                              width: double.infinity,
-                              child: Center(
-                                child: Icon(
-                                  size: 30,
-                                  Icons.dashboard,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              ref
-                                  .read(sideNavigationProvider.notifier)
-                                  .changeSideView(HomeScreenTwo());
-                            },
-                            child: Container(
-                              height: 110,
-                              width: double.infinity,
-                              child: Center(
-                                child: Icon(
-                                  size: 30,
-                                  Icons.menu_book,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
+                          SideMenuButton(
+                            menuColorValue: state.menuColorValue![2],
+                            menuColorIndex: 2,
+                            icon: Icons.stacked_bar_chart,
+                            label: "STOCK",
+                            screen: HomeScreen(),
                           ),
                         ],
                       ),
@@ -172,7 +65,7 @@ class SideNavigation extends ConsumerWidget {
                     color: Colors.white,
                     child: state.sideView,
                   ),
-                )
+                ),
               ],
             ),
           );

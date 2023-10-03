@@ -1,6 +1,6 @@
 import 'package:amar_dokan_app/src/helpers/shared_preference_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final themesProvider = StateNotifierProvider<ThemesProvider, ThemeMode?>((_) {
   return ThemesProvider();

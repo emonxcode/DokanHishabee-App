@@ -1,6 +1,4 @@
-import 'package:amar_dokan_app/src/views/home.dart';
 import 'package:flutter/material.dart';
-
 import '../navigation/side_navigation_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -30,10 +28,12 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
-        child: Text(
-          "OMICRON",
-          style: TextStyle(
-              color: Colors.green, fontWeight: FontWeight.bold, fontSize: 50),
+        child: Container(
+          height: 100,
+          width: 100,
+          child: Image.asset(
+            "assets/logo/omicron.png",
+          ),
         ),
       ),
     );
