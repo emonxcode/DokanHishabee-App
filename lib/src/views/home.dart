@@ -38,7 +38,7 @@ class HomeScreen extends ConsumerWidget {
                   ref.read(localeProvider.notifier).changeLanguage(locale);
                 },
               ),
-              Text('${LocalizationHelper.of(context)!.description}',
+              Text('${LocalizationHelper.of(context)!.products}',
                   textAlign: TextAlign.start,
                   style: Theme.of(context).textTheme.headlineSmall),
               Text(
@@ -48,7 +48,7 @@ class HomeScreen extends ConsumerWidget {
               Consumer(
                 builder: (context, ref, child) {
                   return Switch(
-                      value: themeModeState == ThemeMode.dark, //false or true
+                      value: themeModeState == ThemeMode.dark,
                       onChanged: (value) {
                         ref.read(themesProvider.notifier).changeTheme(value);
                       });

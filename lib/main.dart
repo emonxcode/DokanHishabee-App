@@ -8,9 +8,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'src/helpers/themes/themes.dart';
 import 'src/helpers/themes/themes_provider.dart';
 
+String theme = "light";
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferencesHelper.init();
+  theme = await SharedPreferencesHelper.getTheme();
   runApp(ProviderScope(child: MyApp()));
 }
 
@@ -19,14 +22,14 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-     final themeModeState = ref.watch(themesProvider);
-     final locale = ref.watch(localeProvider);
+    final themeModeState = ref.watch(themesProvider);
+    final locale = ref.watch(localeProvider);
     return MaterialApp(
-      title: 'AmarDokan App',
-      theme: Themes.lightTheme,
-      darkTheme: Themes.darkTheme,
-      themeMode: themeModeState,
-      locale: locale,
+        title: 'AmarDokan App',
+        theme: Themes.lightTheme,
+        darkTheme: Themes.darkTheme,
+        themeMode: themeModeState,
+        locale: locale,
         supportedLocales: [
           Locale('en', 'US'),
           Locale('bn', 'BD'),
@@ -37,8 +40,7 @@ class MyApp extends ConsumerWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-      debugShowCheckedModeBanner: false,
-       home: SplashScreen()
-    );
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen());
   }
 }

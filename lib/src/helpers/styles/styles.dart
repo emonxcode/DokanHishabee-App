@@ -1,11 +1,17 @@
+import 'package:amar_dokan_app/src/helpers/shared_preference_helper.dart';
 import 'package:flutter/material.dart';
 
 class Styles {
-  static TextStyle defaultStyle = TextStyle(color: Colors.blue);
+  static TextStyle defaultStyle = TextStyle(color: SharedPreferencesHelper.getTheme() == "light" ? Colors.black87 : Colors.white);
 
   static TextStyle sideMenuLabel = defaultStyle.copyWith(
     fontWeight: FontWeight.bold,
-    fontSize: 12.0,
+    fontSize: 15.0,
+  );
+
+  static TextStyle pagetitle = defaultStyle.copyWith(
+    fontWeight: FontWeight.bold,
+    fontSize: 22.0,
   );
 
   static TextStyle p =

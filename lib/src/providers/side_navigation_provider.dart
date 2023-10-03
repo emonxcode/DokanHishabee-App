@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../views/home.dart';
+import '../views/products/products_screen.dart';
 
 final sideNavigationProvider = StateNotifierProvider.autoDispose<
     SideNavigationProvider,
@@ -8,12 +8,12 @@ final sideNavigationProvider = StateNotifierProvider.autoDispose<
 
 class SideNavigationState {
   SideNavigationState({required this.sideView});
-  Widget? sideView = HomeScreen();
+  Widget? sideView = ProductsScreen();
   List<int>? menuColorValue = [1, 0, 0, 0, 0, 0, 0];
 }
 
 class SideNavigationProvider extends StateNotifier<SideNavigationState> {
-  SideNavigationProvider() : super(SideNavigationState(sideView: HomeScreen()));
+  SideNavigationProvider() : super(SideNavigationState(sideView: ProductsScreen()));
   void changeSideView(Widget view) {
     state = SideNavigationState(sideView: view);
   }

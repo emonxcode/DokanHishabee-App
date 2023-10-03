@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class LocalizationHelper {
-   Locale? locale;
+  Locale? locale;
 
   LocalizationHelper(this.locale);
 
@@ -35,7 +35,9 @@ class LocalizationHelper {
   }
 
   String? get appName => _translate('appName');
-  String? get description => _translate('description');
+  String? get products => _translate('product') ?? "";
+  String? get sale => _translate('sale') ?? "";
+  String? get report => _translate('report') ?? "";
 }
 
 class _AppLocalizationsDelegate
