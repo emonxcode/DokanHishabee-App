@@ -1,4 +1,8 @@
+import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
+import 'package:amar_dokan_app/src/helpers/styles/styles.dart';
+import 'package:amar_dokan_app/src/helpers/utils/app_space.dart';
 import 'package:flutter/material.dart';
+
 import '../navigation/side_navigation_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -27,14 +31,59 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Center(
-        child: Container(
-          height: 100,
-          width: 100,
-          child: Image.asset(
-            "assets/logo/omicron.png",
+      body: Stack(
+        children: [
+          SizedBox(
+            height: context.height,
+            width: context.width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  height: 100,
+                  width: 100,
+                  child: Image.asset(
+                    "assets/logo/app_logo_round.png",
+                  ),
+                ),
+                AppSpace.spaceH18,
+                Text(
+                  "Dokan Hishabee - দোকান হিসাবী",
+                  style: Styles.pagetitle.copyWith(fontSize: 15),
+                ),
+                AppSpace.spaceH10,
+                Text(
+                  "v1.0.0",
+                  style: Styles.defaultStyle,
+                )
+              ],
+            ),
           ),
-        ),
+          Positioned(
+              bottom: 10,
+              left: 10,
+              right: 10,
+              child: SizedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 50,
+                      child: Image.asset(
+                        "assets/logo/omicron.png",
+                      ),
+                    ),
+                    AppSpace.spaceW10,
+                    Text(
+                      "OMICRON",
+                      style: Styles.pagetitle.copyWith(fontSize: 15),
+                    ),
+                  ],
+                ),
+              ))
+        ],
       ),
     );
   }

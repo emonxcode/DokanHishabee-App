@@ -40,14 +40,14 @@ class SideMenuButton extends ConsumerWidget {
               size: 30,
               color: menuColorValue == 0
                   ? Colors.white
-                  : Color.fromARGB(255, 0, 255, 42),
+                  : Color.fromARGB(202, 0, 255, 42),
             ),
             Text(
               label,
               style: Styles.sideMenuLabel.copyWith(
                 color: menuColorValue == 0
                     ? Colors.white
-                    : Color.fromARGB(255, 0, 255, 42),
+                    : Color.fromARGB(202, 0, 255, 42),
               ),
             ),
           ],

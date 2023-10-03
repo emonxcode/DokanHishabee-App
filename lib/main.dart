@@ -25,7 +25,7 @@ class MyApp extends ConsumerWidget {
     final themeModeState = ref.watch(themesProvider);
     final locale = ref.watch(localeProvider);
     return MaterialApp(
-        title: 'AmarDokan App',
+        title: 'DokanHishabee - দোকান হিসাবী',
         theme: Themes.lightTheme,
         darkTheme: Themes.darkTheme,
         themeMode: themeModeState,
