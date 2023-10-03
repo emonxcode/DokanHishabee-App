@@ -26,9 +26,7 @@ class SideMenuButton extends ConsumerWidget {
     return InkWell(
       onTap: () {
         ref.read(sideNavigationProvider.notifier).changeSideView(screen);
-        ref
-            .read(sideNavigationProvider.notifier)
-            .setColorValue(menuColorIndex);
+        ref.read(sideNavigationProvider.notifier).setColorValue(menuColorIndex);
       },
       child: Container(
         height: context.height * .115,
@@ -42,14 +40,14 @@ class SideMenuButton extends ConsumerWidget {
               size: 30,
               color: menuColorValue == 0
                   ? Colors.white
-                  : const Color.fromARGB(255, 74, 195, 94),
+                  : Color.fromARGB(255, 0, 255, 42),
             ),
             Text(
               label,
               style: Styles.sideMenuLabel.copyWith(
                 color: menuColorValue == 0
                     ? Colors.white
-                    : const Color.fromARGB(255, 74, 195, 94),
+                    : Color.fromARGB(255, 0, 255, 42),
               ),
             ),
           ],

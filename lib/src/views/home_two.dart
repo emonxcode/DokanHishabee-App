@@ -13,6 +13,7 @@ class HomeScreenTwo extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final themeModeState = ref.read(themesProvider);
+    
     return Scaffold(
       body: SlideAnimatedWidget(
         direction: SlideDirectionType.fromOffset,
