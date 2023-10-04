@@ -28,10 +28,11 @@ class HomeScreen extends ConsumerWidget {
                 itemBuilder: (context) {
                   return SupportedLocale.values
                       .map<PopupMenuEntry<SupportedLocale>>(
-                          (e) => PopupMenuItem(
-                                child: Text('${e.name}'),
-                                value: e,
-                              ))
+                        (e) => PopupMenuItem(
+                          child: Text('${e.name}'),
+                          value: e,
+                        ),
+                      )
                       .toList();
                 },
                 onSelected: (locale) {

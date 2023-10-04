@@ -1,6 +1,8 @@
 import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
+import 'package:amar_dokan_app/src/helpers/shared_preference_helper.dart';
 import 'package:amar_dokan_app/src/helpers/styles/styles.dart';
 import 'package:amar_dokan_app/src/helpers/utils/app_space.dart';
+import 'package:amar_dokan_app/src/views/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import '../navigation/side_navigation_screen.dart';
 
@@ -15,15 +17,30 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    goRoute();
+  }
 
-    Future.delayed(Duration(seconds: 3)).then(
-      (value) => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => SideNavigation(),
+  goRoute() async {
+    var isLoggedIn = await SharedPreferencesHelper.getLoginFlag();
+    if (isLoggedIn) {
+      Future.delayed(Duration(seconds: 2)).then(
+        (value) => Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SideNavigation(),
+          ),
         ),
-      ),
-    );
+      );
+    } else {
+      Future.delayed(Duration(seconds: 2)).then(
+        (value) => Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginScreen(),
+          ),
+        ),
+      );
+    }
   }
 
   @override
