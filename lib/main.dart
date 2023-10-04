@@ -1,7 +1,8 @@
 import 'package:amar_dokan_app/src/helpers/l10n/local_helper.dart';
 import 'package:amar_dokan_app/src/helpers/l10n/local_provider.dart';
 import 'package:amar_dokan_app/src/helpers/shared_preference_helper.dart';
-import 'package:amar_dokan_app/src/views/splash_screen/splash_screen.dart';
+import 'package:amar_dokan_app/src/views/home.dart';
+import 'package:amar_dokan_app/src/views/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -41,6 +42,6 @@ class MyApp extends ConsumerWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         debugShowCheckedModeBanner: false,
-        home: SplashScreen());
+        home: LoginScreen());
   }
 }

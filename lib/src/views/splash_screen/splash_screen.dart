@@ -2,7 +2,6 @@ import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
 import 'package:amar_dokan_app/src/helpers/styles/styles.dart';
 import 'package:amar_dokan_app/src/helpers/utils/app_space.dart';
 import 'package:flutter/material.dart';
-
 import '../navigation/side_navigation_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(seconds: 2)).then(
+    Future.delayed(Duration(seconds: 3)).then(
       (value) => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -56,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 Text(
                   "v1.0.0",
                   style: Styles.defaultStyle,
-                )
+                ),
               ],
             ),
           ),
