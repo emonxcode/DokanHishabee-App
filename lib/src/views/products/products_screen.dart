@@ -2,9 +2,7 @@ import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
 import 'package:amar_dokan_app/src/helpers/utils/app_space.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_animation_transition/simple_animation_transition.dart';
-
 import '../../../main.dart';
-import '../../helpers/shared_preference_helper.dart';
 import '../../helpers/styles/styles.dart';
 import 'widgets/scanner_btn.dart';
 import 'widgets/search_bar.dart';
@@ -53,7 +51,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                     Spacer(),
                     ScannerButton(),
                   ],
-                )
+                ),
               ],
             ),
           ),

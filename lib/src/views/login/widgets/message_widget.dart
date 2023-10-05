@@ -10,26 +10,25 @@ class MessageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color color = Colors.green;
     if (state is AuthenticationLoadingState) {
-      return Text(
-        "Authenticating...",
-        style: Styles.defaultStyle.copyWith(color: Colors.green),
-      );
+      color = Colors.green;
     }
 
     if (state is AuthenticationLoadedState) {
-      return Text(
-        state.message,
-        style: Styles.defaultStyle.copyWith(color: Colors.green),
-      );
+      color = Colors.green;
     }
 
     if (state is AuthenticationErrorState) {
-      return Text(
-        state.message,
-        style: Styles.defaultStyle.copyWith(color: Colors.red),
-      );
+      color = Colors.red;
     }
-    return SizedBox();
+
+    if (state is AuthenticationFormFieldErrorState) {
+      color = Colors.red;
+    }
+    return Text(
+      state.message,
+      style: Styles.defaultStyle.copyWith(color: color),
+    );
   }
 }
