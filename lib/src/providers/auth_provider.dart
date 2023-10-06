@@ -57,7 +57,6 @@ class AuthenticationProvider extends StateNotifier<AuthenticationState> {
       state = AuthenticationLoadingState();
       if (formValidation(mobile, password)) {
         state = AuthenticationLoadingState();
-        await Future.delayed(Duration(seconds: 2));
         loginStatus = await AuthService().login(mobile, password);
 
         if (loginStatus) {

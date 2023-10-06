@@ -95,6 +95,21 @@ class _OptionsScreenState extends State<OptionsScreen> {
                     ),
                   ],
                 ),
+                AppSpace.spaceH10,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // OptionsItemView(
+                    //   imgUrl: 'assets/image/settings.png',
+                    //   label: 'Settings',
+                    // ),
+                    // AppSpace.spaceW16,
+                    OptionsItemView(
+                      imgUrl: 'assets/image/info.png',
+                      label: 'About Us',
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

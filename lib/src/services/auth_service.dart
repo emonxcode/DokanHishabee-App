@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:amar_dokan_app/src/helpers/constants/api_endpoints.dart';
 import 'package:amar_dokan_app/src/helpers/shared_preference_helper.dart';
@@ -38,7 +39,10 @@ class AuthService {
         print(response.body.toString());
         return false;
       }
-    } catch (ex) {
+    }on SocketException{
+      throw Exception("No internet!");
+    }
+     catch (ex) {
       throw ex;
     }
   }

@@ -24,7 +24,7 @@ class OptionsItemView extends StatelessWidget {
             spreadRadius: 2,
             color: theme == "light"
                 ? Color.fromARGB(255, 236, 236, 233)
-                : Colors.black,
+                : Color.fromARGB(255, 27, 27, 27),
           )
         ],
         borderRadius: BorderRadius.circular(15),
@@ -41,12 +41,14 @@ class OptionsItemView extends StatelessWidget {
             child: Image.asset(imgUrl),
           ),
           AppSpace.spaceH10,
-          Text(label,
-              style: Styles.h1.copyWith(
-                color: theme == "light"
-                    ? Colors.black54
-                    : Color.fromARGB(255, 255, 255, 255),
-              )),
+          Text(
+            label,
+            style: Styles.h1.copyWith(
+              color: theme == "light"
+                  ? Colors.black54
+                  : Color.fromARGB(255, 255, 255, 255),
+            ),
+          ),
         ],
       ),
     );
