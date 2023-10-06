@@ -6,6 +6,7 @@ import 'package:amar_dokan_app/src/views/products/products_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../helpers/l10n/local_helper.dart';
+import '../options/options_screen.dart';
 import 'widgets/sideMenuButton.dart';
 
 class SideNavigation extends ConsumerWidget {
@@ -37,7 +38,7 @@ class SideNavigation extends ConsumerWidget {
                           SideMenuButton(
                             menuColorValue: state.menuColorValue![0],
                             menuColorIndex: 0,
-                            icon: Icons.shop_2_rounded,
+                            icon: Icons.store,
                             label: LocalizationHelper.of(context)!.products!,
                             screen: ProductsScreen(),
                           ),
@@ -54,6 +55,34 @@ class SideNavigation extends ConsumerWidget {
                             icon: Icons.stacked_bar_chart,
                             label: LocalizationHelper.of(context)!.report!,
                             screen: ProductsScreen(),
+                          ),
+                          SideMenuButton(
+                            menuColorValue: state.menuColorValue![3],
+                            menuColorIndex: 3,
+                            icon: Icons.add_chart,
+                            label: LocalizationHelper.of(context)!.stock!,
+                            screen: ProductsScreen(),
+                          ),
+                          SideMenuButton(
+                            menuColorValue: state.menuColorValue![4],
+                            menuColorIndex: 4,
+                            icon: Icons.handshake_rounded,
+                            label: LocalizationHelper.of(context)!.purchase!,
+                            screen: ProductsScreen(),
+                          ),
+                          SideMenuButton(
+                            menuColorValue: state.menuColorValue![5],
+                            menuColorIndex: 5,
+                            icon: Icons.arrow_circle_down_sharp,
+                            label: LocalizationHelper.of(context)!.expense!,
+                            screen: ProductsScreen(),
+                          ),
+                          SideMenuButton(
+                            menuColorValue: state.menuColorValue![6],
+                            menuColorIndex: 6,
+                            icon: Icons.grid_view_rounded,
+                            label: LocalizationHelper.of(context)!.menu!,
+                            screen: OptionsScreen(),
                           ),
                         ],
                       ),

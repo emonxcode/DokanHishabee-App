@@ -14,8 +14,8 @@ class Styles {
     fontSize: 22.0,
   );
 
-  static TextStyle p =
-      defaultStyle.copyWith(fontSize: 16.0, color: Colors.black);
+  static TextStyle h1 =
+      defaultStyle.copyWith(fontSize: 16.0, fontWeight: FontWeight.bold);
 
   static TextStyle error = defaultStyle.copyWith(
     fontWeight: FontWeight.w500,

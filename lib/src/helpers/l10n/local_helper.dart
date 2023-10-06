@@ -38,6 +38,10 @@ class LocalizationHelper {
   String? get products => _translate('product') ?? "";
   String? get sale => _translate('sale') ?? "";
   String? get report => _translate('report') ?? "";
+  String? get stock => _translate('stock') ?? "";
+  String? get menu => _translate('menu') ?? "";
+  String? get purchase => _translate('purchase') ?? "";
+  String? get expense => _translate('expense') ?? "";
 }
 
 class _AppLocalizationsDelegate

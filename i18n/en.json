@@ -1,7 +1,10 @@
-
 {
-  "appName":"Amar Dokan",
+  "appName": "Amar Dokan",
   "product": "Products",
   "sale": "Sale",
-  "report": "Reports"
- }
+  "report": "Reports",
+  "stock": "Stock",
+  "purchase": "Purchase",
+  "expense": "Expense",
+  "menu": "Options"
+}

@@ -44,6 +44,7 @@ flutter:
   assets:
     - pubspec.yaml
     - assets/logo/
+    - assets/image/
     - i18n/
 
 
