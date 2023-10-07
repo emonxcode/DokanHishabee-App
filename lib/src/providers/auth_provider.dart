@@ -80,8 +80,7 @@ class AuthenticationProvider extends StateNotifier<AuthenticationState> {
     } catch (ex) {
       loginStatus = false;
       message = ex.toString();
-      state =
-          AuthenticationErrorState(message: message, loginStatus: loginStatus);
+      state = AuthenticationErrorState(message: message, loginStatus: loginStatus);
     }
   }
 

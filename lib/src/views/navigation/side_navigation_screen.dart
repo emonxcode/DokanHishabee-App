@@ -82,7 +82,7 @@ class SideNavigation extends ConsumerWidget {
                             menuColorIndex: 6,
                             icon: Icons.grid_view_rounded,
                             label: LocalizationHelper.of(context)!.menu!,
-                            screen: OptionsScreen(),
+                            screen: OptionsScreen(dx: 0, dy: context.height * 0.5),
                           ),
                         ],
                       ),
