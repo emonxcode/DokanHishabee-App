@@ -1,8 +1,13 @@
 import 'package:amar_dokan_app/src/helpers/shared_preference_helper.dart';
 import 'package:flutter/material.dart';
 
+import '../../../main.dart';
+
 class Styles {
-  static TextStyle defaultStyle = TextStyle(color: SharedPreferencesHelper.getTheme() == "light" ? Colors.black87 : Colors.white);
+  static TextStyle defaultStyle = TextStyle(
+      color: SharedPreferencesHelper.getTheme() == "light"
+          ? Colors.black87
+          : Colors.white);
 
   static TextStyle sideMenuLabel = defaultStyle.copyWith(
     fontWeight: FontWeight.bold,
@@ -22,6 +27,7 @@ class Styles {
     fontSize: 14.0,
     color: Colors.red,
   );
+
 
   static InputDecoration input = InputDecoration(
     fillColor: Colors.white,
