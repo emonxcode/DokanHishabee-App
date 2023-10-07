@@ -2,15 +2,20 @@ import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../main.dart';
-import '../../../helpers/styles/styles.dart';
-import '../../../providers/side_navigation_provider.dart';
-import '../../options/options_screen.dart';
+import '../../../main.dart';
+import '../../helpers/styles/styles.dart';
+import '../../providers/side_navigation_provider.dart';
+import '../options/options_screen.dart';
 
-class CustomAppBar extends ConsumerWidget {
-  const CustomAppBar({
+class CustomMenuAppBar extends ConsumerWidget {
+  const CustomMenuAppBar({
     super.key,
+    required this.logoUrl,
+    required this.title
   });
+
+  final String logoUrl;
+  final String title;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,12 +24,12 @@ class CustomAppBar extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(
-          height: 50,
-          width: 50,
-          child: Image.asset('assets/image/category.png'),
+          height: 40,
+          width: 40,
+          child: Image.asset(logoUrl),
         ),
         Text(
-          "Categories",
+          title,
           style: Styles.pagetitle.copyWith(
             color: theme == "light" ? Colors.black87 : Colors.white,
           ),

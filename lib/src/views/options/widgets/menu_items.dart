@@ -7,6 +7,7 @@ import '../../../../main.dart';
 import '../../../helpers/styles/styles.dart';
 import '../../../helpers/utils/app_space.dart';
 import '../../../providers/side_navigation_provider.dart';
+import '../../units/units_screen.dart';
 
 class OptionsItemView extends ConsumerWidget {
   const OptionsItemView({
@@ -29,6 +30,11 @@ class OptionsItemView extends ConsumerWidget {
               .read(sideNavigationProvider.notifier)
               .changeSideView(CategoryScreen());
           ref.read(sideNavigationProvider.notifier).setColorValue(6);
+        } else if (routeID == "units") {
+          ref
+              .read(sideNavigationProvider.notifier)
+              .changeSideView(UnitsScreen());
+          ref.read(sideNavigationProvider.notifier).setColorValue(6);
         }
       },
       child: Container(
@@ -47,7 +53,7 @@ class OptionsItemView extends ConsumerWidget {
           ],
           borderRadius: BorderRadius.circular(15),
           color:
-              theme == "light" ? Colors.white : Color.fromARGB(255, 92, 92, 92),
+              theme == "light" ? Colors.white : Color.fromARGB(255, 54, 54, 54),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

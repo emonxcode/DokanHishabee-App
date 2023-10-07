@@ -55,7 +55,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
                     ),
                   ],
                 ),
-                AppSpace.spaceH10,
+                AppSpace.spaceH16,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -72,7 +72,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
                     ),
                   ],
                 ),
-                AppSpace.spaceH10,
+                AppSpace.spaceH16,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -89,7 +89,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
                     ),
                   ],
                 ),
-                AppSpace.spaceH10,
+                AppSpace.spaceH16,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -106,7 +106,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
                     ),
                   ],
                 ),
-                AppSpace.spaceH10,
+                AppSpace.spaceH16,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

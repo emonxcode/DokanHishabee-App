@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../main.dart';
 
-class CategoryNameField extends StatelessWidget {
-  const CategoryNameField({
+class UnitNameField extends StatelessWidget {
+  const UnitNameField({
     super.key,
   });
 
@@ -38,7 +38,7 @@ class CategoryNameField extends StatelessWidget {
               prefixIcon: Icon(Icons.account_tree_rounded),
               contentPadding: EdgeInsets.zero,
               border: InputBorder.none,
-              hintText: "Category name."),
+              hintText: "Unit name."),
         ),
       ),
     );

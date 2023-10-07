@@ -18,7 +18,7 @@ class ImagePickerContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           color: theme == "light"
               ? Color.fromARGB(255, 243, 243, 243)
-              : Color.fromARGB(255, 146, 146, 146),
+              : Color.fromARGB(255, 131, 131, 131),
         ),
         child: Center(
           child: Icon(
