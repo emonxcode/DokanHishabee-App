@@ -8,7 +8,7 @@ class CategoryState {}
 class CategoryController extends StateNotifier<CategoryState> {
   CategoryController({required this.ref}) : super(CategoryState());
 
-  Ref ref;
-
+  Ref ref; 
+  
   
 }

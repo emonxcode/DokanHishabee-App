@@ -1,33 +1,24 @@
+import 'package:amar_dokan_app/src/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../helpers/styles/styles.dart';
-import '../../../providers/auth_provider.dart';
 
-class MessageWidget extends StatelessWidget {
-  MessageWidget({super.key, required this.state});
-
-  var state;
+class MessageWidget extends ConsumerWidget {
+  MessageWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var controller = ref.watch(authencationProvider);
     Color color = Colors.green;
-    if (state is AuthenticationLoadingState) {
+    if (controller.isErrorMessage) {
+      color = Colors.red;
+    } else {
       color = Colors.green;
     }
 
-    if (state is AuthenticationLoadedState) {
-      color = Colors.green;
-    }
-
-    if (state is AuthenticationErrorState) {
-      color = Colors.red;
-    }
-
-    if (state is AuthenticationFormFieldErrorState) {
-      color = Colors.red;
-    }
     return Text(
-      state.message,
+      controller.message,
       style: Styles.defaultStyle.copyWith(color: color),
     );
   }

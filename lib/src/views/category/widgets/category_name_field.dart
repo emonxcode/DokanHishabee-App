@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../main.dart';
 
 class CategoryNameField extends StatelessWidget {
@@ -35,10 +34,11 @@ class CategoryNameField extends StatelessWidget {
           textAlignVertical: TextAlignVertical.center,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           decoration: InputDecoration(
-              prefixIcon: Icon(Icons.account_tree_rounded),
-              contentPadding: EdgeInsets.zero,
-              border: InputBorder.none,
-              hintText: "Category name."),
+            prefixIcon: Icon(Icons.account_tree_rounded),
+            contentPadding: EdgeInsets.zero,
+            border: InputBorder.none,
+            hintText: "Enter category name",
+          ),
         ),
       ),
     );

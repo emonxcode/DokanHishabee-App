@@ -6,7 +6,7 @@ import '../../../../main.dart';
 import '../../../helpers/styles/styles.dart';
 import '../../../providers/auth_provider.dart';
 
-class PasswordTextField extends StatelessWidget {
+class PasswordTextField extends ConsumerStatefulWidget {
   const PasswordTextField({
     super.key,
     required this.passwordTextController,
@@ -15,14 +15,18 @@ class PasswordTextField extends StatelessWidget {
   final TextEditingController passwordTextController;
 
   @override
+  ConsumerState<PasswordTextField> createState() => _PasswordTextFieldState();
+}
+
+class _PasswordTextFieldState extends ConsumerState<PasswordTextField> {
+  @override
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        var state = ref.watch(authencationProvider);
-        var stateProvider = ref.read(authencationProvider.notifier);
+        var controller = ref.watch(authencationProvider);
         return Container(
-          height: state is AuthenticationFormFieldErrorState &&
-                  state.passFieldError.isNotEmpty
+          height: controller.passFieldError != null &&
+                  controller.passFieldError!.isNotEmpty
               ? 70
               : 50,
           width: context.width * 0.8,
@@ -46,10 +50,10 @@ class PasswordTextField extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextField(
-                controller: passwordTextController,
+                controller: widget.passwordTextController,
                 textAlignVertical: TextAlignVertical.center,
                 style: TextStyle(fontSize: 18),
-                obscureText: !stateProvider.showPass,
+                obscureText: !controller.showPass,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.zero,
                   border: InputBorder.none,
@@ -57,18 +61,18 @@ class PasswordTextField extends StatelessWidget {
                   prefixIcon: Icon(Icons.security),
                   suffixIcon: IconButton(
                     onPressed: () {
-                      stateProvider.togglePasswordVisibility();
+                      controller.togglePasswordVisibility();
                     },
-                    icon: Icon(stateProvider.showPass
+                    icon: Icon(controller.showPass
                         ? Icons.visibility_off
                         : Icons.visibility),
                   ),
                 ),
               ),
-              if (state is AuthenticationFormFieldErrorState &&
-                  state.passFieldError.isNotEmpty)
+              if (controller.passFieldError != null &&
+                  controller.passFieldError!.isNotEmpty)
                 Text(
-                  state.passFieldError,
+                  controller.passFieldError!,
                   style: Styles.defaultStyle.copyWith(color: Colors.red),
                 ),
             ],

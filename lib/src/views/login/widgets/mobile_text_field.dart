@@ -18,11 +18,10 @@ class MobileTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        var state = ref.watch(authencationProvider);
-        //  var stateProvider = ref.read(authencationProvider.notifier);
+        var controller = ref.watch(authencationProvider);
         return Container(
-          height: state is AuthenticationFormFieldErrorState &&
-                  state.mabileFieldError.isNotEmpty
+          height: controller.mabileFieldError != null &&
+                  controller.mabileFieldError!.isNotEmpty
               ? 70
               : 50,
           width: context.width * 0.8,
@@ -58,10 +57,10 @@ class MobileTextField extends StatelessWidget {
                   prefixIcon: Icon(Icons.mobile_screen_share),
                 ),
               ),
-              if (state is AuthenticationFormFieldErrorState &&
-                  state.mabileFieldError.isNotEmpty)
+              if (controller.mabileFieldError != null &&
+                  controller.mabileFieldError! != "")
                 Text(
-                  state.mabileFieldError,
+                  controller.mabileFieldError!,
                   style: Styles.defaultStyle.copyWith(color: Colors.red),
                 ),
             ],

@@ -35,10 +35,11 @@ class UnitNameField extends StatelessWidget {
           textAlignVertical: TextAlignVertical.center,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           decoration: InputDecoration(
-              prefixIcon: Icon(Icons.account_tree_rounded),
-              contentPadding: EdgeInsets.zero,
-              border: InputBorder.none,
-              hintText: "Unit name."),
+            prefixIcon: Icon(Icons.account_tree_rounded),
+            contentPadding: EdgeInsets.zero,
+            border: InputBorder.none,
+            hintText: "Enter unit name",
+          ),
         ),
       ),
     );
