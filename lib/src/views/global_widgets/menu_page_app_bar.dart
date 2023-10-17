@@ -1,4 +1,3 @@
-import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,11 +7,8 @@ import '../../providers/side_navigation_provider.dart';
 import '../options/options_screen.dart';
 
 class CustomMenuAppBar extends ConsumerWidget {
-  const CustomMenuAppBar({
-    super.key,
-    required this.logoUrl,
-    required this.title
-  });
+  const CustomMenuAppBar(
+      {super.key, required this.logoUrl, required this.title});
 
   final String logoUrl;
   final String title;
@@ -36,8 +32,8 @@ class CustomMenuAppBar extends ConsumerWidget {
         ),
         IconButton(
           onPressed: () {
-            ref.read(sideNavigationProvider.notifier).changeSideView(
-                OptionsScreen(dx: -context.height * 0.5, dy: 0));
+            ref.read(sideNavigationProvider.notifier)
+                .changeSideView(OptionsScreen(dx: 0, dy: 0));
             ref.read(sideNavigationProvider.notifier).setColorValue(6);
           },
           color: theme == "light" ? Colors.black87 : Colors.white,
