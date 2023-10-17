@@ -85,7 +85,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       context);
                 },
                 child: Text(
-                  "LOGIN",
+                  "Login",
                   style: Styles.defaultStyle.copyWith(
                     fontWeight: FontWeight.bold,
                     color: theme == "dark"
