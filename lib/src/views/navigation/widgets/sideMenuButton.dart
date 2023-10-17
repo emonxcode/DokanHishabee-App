@@ -1,8 +1,9 @@
 import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
+import 'package:amar_dokan_app/src/helpers/utils/colors.dart';
+import 'package:amar_dokan_app/src/views/widgets/dokan_hishabee_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../helpers/styles/styles.dart';
 import '../../../providers/side_navigation_provider.dart';
 
 class SideMenuButton extends ConsumerWidget {
@@ -25,8 +26,8 @@ class SideMenuButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return InkWell(
       onTap: () {
-        ref.read(sideNavigationProvider.notifier).changeSideView(screen);
-        ref.read(sideNavigationProvider.notifier).setColorValue(menuColorIndex);
+        ref.read(sideNavigationProvider).changeSideView(screen);
+        ref.read(sideNavigationProvider).setColorValue(menuColorIndex);
       },
       child: Container(
         height: context.height * .115,
@@ -35,20 +36,16 @@ class SideMenuButton extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(
-              icon,
-              size: 30,
-              color: menuColorValue == 0
-                  ? Colors.white
-                  : Color.fromARGB(202, 0, 255, 42),
-            ),
-            Text(
-              label,
-              style: Styles.sideMenuLabel.copyWith(
+            Icon(icon,
+                size: 30,
                 color: menuColorValue == 0
-                    ? Colors.white
-                    : Color.fromARGB(202, 0, 255, 42),
-              ),
+                    ? AppColors.whiteColor
+                    : AppColors.primaryColor),
+            DokanHishabeeTextWidget(
+              text: label,
+              color: menuColorValue == 0
+                  ? AppColors.whiteColor
+                  : AppColors.primaryColor,
             ),
           ],
         ),

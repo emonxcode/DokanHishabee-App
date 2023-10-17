@@ -3,6 +3,7 @@ import 'package:amar_dokan_app/src/helpers/shared_preference_helper.dart';
 import 'package:amar_dokan_app/src/helpers/styles/styles.dart';
 import 'package:amar_dokan_app/src/helpers/utils/app_space.dart';
 import 'package:amar_dokan_app/src/views/login/login_screen.dart';
+import 'package:amar_dokan_app/src/views/widgets/dokan_hishabee_text.dart';
 import 'package:flutter/material.dart';
 import '../navigation/side_navigation_screen.dart';
 
@@ -64,9 +65,11 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ),
                 AppSpace.spaceH18,
-                Text(
-                  "Dokan Hishabee - দোকান হিসাবী",
-                  style: Styles.pagetitle.copyWith(fontSize: 15),
+                DokanHishabeeTextWidget(
+                  text: "Dokan Hishabee - দোকান হিসাবী",
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  
                 ),
                 AppSpace.spaceH10,
                 Text(
