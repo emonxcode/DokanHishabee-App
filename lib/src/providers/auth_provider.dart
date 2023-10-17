@@ -16,10 +16,12 @@ class AuthenticationController extends ChangeNotifier {
   String? mabileFieldError = null;
   String? passFieldError = null;
   bool isErrorMessage = false;
+  bool isLoading = false;
 
   Future login(String mobile, String password, BuildContext context) async {
+    isLoading = true;
+    notifyListeners();
     try {
-      notifyListeners();
       if (formValidation(mobile, password)) {
         loginStatus = await AuthService().login(mobile, password);
 
@@ -47,6 +49,8 @@ class AuthenticationController extends ChangeNotifier {
       isErrorMessage = true;
       notifyListeners();
     }
+    isLoading = false;
+    notifyListeners();
   }
 
   bool formValidation(String mobile, String password) {

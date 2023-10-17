@@ -1,11 +1,13 @@
 import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
 import 'package:amar_dokan_app/src/providers/auth_provider.dart';
+import 'package:amar_dokan_app/src/views/widgets/dokan_hishabee_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../main.dart';
 import '../../helpers/styles/styles.dart';
 import '../../helpers/utils/app_space.dart';
+import '../../helpers/utils/colors.dart';
 import 'widgets/message_widget.dart';
 import 'widgets/mobile_text_field.dart';
 import 'widgets/password_text_field.dart';
@@ -45,21 +47,13 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               ),
             ),
             AppSpace.spaceH10,
-            Text(
-              "Dokan Hishabee - দোকান হিসাবী",
-              style: Styles.pagetitle.copyWith(
-                fontSize: 15,
-                color: theme == "dark"
-                    ? Color.fromARGB(255, 219, 219, 219)
-                    : const Color.fromARGB(255, 73, 73, 73),
-              ),
+            DokanHishabeeTextWidget(
+              text: "Dokan Hishabee - দোকান হিসাবী",
+              color: theme == "dark" ? AppColors.lightGrey : AppColors.darkGrey,
+              fontSize: 15,
             ),
             AppSpace.spaceH10,
-            Consumer(
-              builder: (context, ref, child) {
-                return MessageWidget();
-              },
-            ),
+            MessageWidget(),
             AppSpace.spaceH10,
             MobileTextField(mobileTextController: mobileTextController),
             AppSpace.spaceH18,
@@ -70,9 +64,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               width: context.width * 0.8,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: theme == "light"
-                      ? Colors.green
-                      : Color.fromARGB(255, 236, 236, 233),
+                  backgroundColor:
+                      theme == "light" ? AppColors.primaryColor : AppColors.lightGrey,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
@@ -88,9 +81,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   "Login",
                   style: Styles.defaultStyle.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: theme == "dark"
-                        ? Colors.green
-                        : Color.fromARGB(255, 236, 236, 233),
+                    color:
+                        theme == "dark" ? AppColors.primaryColor : AppColors.lightGrey,
                   ),
                 ),
               ),

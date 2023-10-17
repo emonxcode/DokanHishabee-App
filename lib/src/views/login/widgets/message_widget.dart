@@ -18,7 +18,7 @@ class MessageWidget extends ConsumerWidget {
     }
 
     return Text(
-      controller.message,
+      controller.isLoading ? "Loading..." : controller.message,
       style: Styles.defaultStyle.copyWith(color: color),
     );
   }

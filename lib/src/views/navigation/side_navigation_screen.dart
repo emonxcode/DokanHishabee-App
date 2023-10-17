@@ -17,7 +17,7 @@ class SideNavigation extends ConsumerWidget {
     return Scaffold(
       body: Consumer(
         builder: (context, s_ref, child) {
-          var state = s_ref.watch(sideNavigationProvider);
+          var controller = s_ref.watch(sideNavigationProvider);
 
           return Container(
             height: context.height,
@@ -36,49 +36,49 @@ class SideNavigation extends ConsumerWidget {
                           AppSpace.spaceH30,
                           AppSpace.spaceH10,
                           SideMenuButton(
-                            menuColorValue: state.menuColorValue![0],
+                            menuColorValue: controller.menuColorValue![0],
                             menuColorIndex: 0,
                             icon: Icons.store,
                             label: LocalizationHelper.of(context)!.products!,
                             screen: ProductsScreen(),
                           ),
                           SideMenuButton(
-                            menuColorValue: state.menuColorValue![1],
+                            menuColorValue: controller.menuColorValue![1],
                             menuColorIndex: 1,
                             icon: Icons.shopping_cart,
                             label: LocalizationHelper.of(context)!.sale!,
                             screen: HomeScreen(),
                           ),
                           SideMenuButton(
-                            menuColorValue: state.menuColorValue![2],
+                            menuColorValue: controller.menuColorValue![2],
                             menuColorIndex: 2,
                             icon: Icons.stacked_bar_chart,
                             label: LocalizationHelper.of(context)!.report!,
                             screen: ProductsScreen(),
                           ),
                           SideMenuButton(
-                            menuColorValue: state.menuColorValue![3],
+                            menuColorValue: controller.menuColorValue![3],
                             menuColorIndex: 3,
                             icon: Icons.add_chart,
                             label: LocalizationHelper.of(context)!.stock!,
                             screen: ProductsScreen(),
                           ),
                           SideMenuButton(
-                            menuColorValue: state.menuColorValue![4],
+                            menuColorValue: controller.menuColorValue![4],
                             menuColorIndex: 4,
                             icon: Icons.handshake_rounded,
                             label: LocalizationHelper.of(context)!.purchase!,
                             screen: ProductsScreen(),
                           ),
                           SideMenuButton(
-                            menuColorValue: state.menuColorValue![5],
+                            menuColorValue: controller.menuColorValue![5],
                             menuColorIndex: 5,
                             icon: Icons.arrow_circle_down_sharp,
                             label: LocalizationHelper.of(context)!.expense!,
                             screen: ProductsScreen(),
                           ),
                           SideMenuButton(
-                            menuColorValue: state.menuColorValue![6],
+                            menuColorValue: controller.menuColorValue![6],
                             menuColorIndex: 6,
                             icon: Icons.grid_view_rounded,
                             label: LocalizationHelper.of(context)!.menu!,
@@ -93,7 +93,7 @@ class SideNavigation extends ConsumerWidget {
                   flex: 85,
                   child: Container(
                     color: Colors.white,
-                    child: state.sideView!,
+                    child: controller.sideView!,
                   ),
                 ),
               ],

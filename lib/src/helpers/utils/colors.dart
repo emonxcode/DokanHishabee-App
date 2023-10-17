@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static var colorOne = fromHex("#46A094");
-  static var colorTwo = Color.fromARGB(244, 35, 30, 44);
-  static var colorThree = fromHex("#AECFA4");
-  static var colorFour = fromHex("#C4E8C2");
-
-  static var green = Colors.green;
+  static const primaryColor = Color.fromARGB(202, 0, 255, 42);
+  static const lightGrey = Color.fromARGB(255, 236, 236, 233);
+  static const grey = Colors.grey;
+  static const darkGrey = Color.fromARGB(255, 105, 105, 105);
+  static const whiteColor = Colors.white;
 
   static Color fromHex(String hexString) {
     final buffer = StringBuffer();
