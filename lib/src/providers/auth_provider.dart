@@ -1,4 +1,5 @@
-import 'package:amar_dokan_app/src/services/auth_service.dart';
+import 'package:amar_dokan_app/src/repository/authenticationl_repository.dart';
+import 'package:amar_dokan_app/src/services2/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,6 +11,7 @@ final authencationProvider =
 
 /// provider
 class AuthenticationController extends ChangeNotifier {
+  AuthenticationRepository authRepo = AuthenticationRepository();
   bool showPass = false;
   bool loginStatus = false;
   String message = "";
@@ -20,12 +22,13 @@ class AuthenticationController extends ChangeNotifier {
 
   Future login(String mobile, String password, BuildContext context) async {
     isLoading = true;
+    var response;
     notifyListeners();
     try {
       if (formValidation(mobile, password)) {
-        loginStatus = await AuthService().login(mobile, password);
+        response = await authRepo.login({"mobile": mobile, "password": password});
 
-        if (loginStatus) {
+        if (response['success'] == true) {
           message = "Successful";
           isErrorMessage = false;
           notifyListeners();
@@ -38,7 +41,7 @@ class AuthenticationController extends ChangeNotifier {
             ),
           );
         } else {
-          message = "Failed!";
+          message = "Login Failed!";
           isErrorMessage = true;
           notifyListeners();
         }
