@@ -1,4 +1,5 @@
 import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
+import 'package:amar_dokan_app/src/helpers/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_animation_transition/simple_animation_transition.dart';
 
@@ -35,7 +36,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
                 Text(
                   "Options",
                   style: Styles.pagetitle.copyWith(
-                    color: theme == "light" ? Colors.black87 : Colors.white,
+                    color: theme == "light" ? AppColors.darkColor : AppColors.whiteColor,
                   ),
                 ),
                 AppSpace.spaceH20,

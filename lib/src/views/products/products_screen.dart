@@ -1,5 +1,6 @@
 import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
 import 'package:amar_dokan_app/src/helpers/utils/app_space.dart';
+import 'package:amar_dokan_app/src/helpers/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_animation_transition/simple_animation_transition.dart';
 import '../../../main.dart';
@@ -15,8 +16,6 @@ class ProductsScreen extends StatefulWidget {
 }
 
 class _ProductsScreenState extends State<ProductsScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,13 +35,15 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 Text(
                   "Bismillah General Store",
                   style: Styles.pagetitle.copyWith(
-                    color: theme == "light" ? Colors.black87 : Colors.white,
+                    color: theme == "light"
+                        ? AppColors.darkColor
+                        : AppColors.whiteColor,
                   ),
                 ),
                 Text(
                   "All Products",
-                  style: Styles.pagetitle.copyWith(
-                      fontSize: 15, color: Color.fromARGB(221, 105, 105, 105)),
+                  style: Styles.pagetitle
+                      .copyWith(fontSize: 15, color: AppColors.grey),
                 ),
                 AppSpace.spaceH18,
                 Row(

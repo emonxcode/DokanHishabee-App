@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../main.dart';
-import '../../helpers/styles/styles.dart';
 import '../../helpers/utils/app_space.dart';
 import '../../helpers/utils/colors.dart';
 import 'widgets/message_widget.dart';
@@ -50,7 +49,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             DokanHishabeeTextWidget(
               text: "Dokan Hishabee - দোকান হিসাবী",
               color: theme == "dark" ? AppColors.lightGrey : AppColors.darkGrey,
-              fontSize: 15,
+              fontSize: 18,
             ),
             AppSpace.spaceH10,
             MessageWidget(),
@@ -64,8 +63,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               width: context.width * 0.8,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      theme == "light" ? AppColors.primaryColor : AppColors.lightGrey,
+                  backgroundColor: theme == "light"
+                      ? AppColors.primaryColor
+                      : AppColors.lightGrey,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
@@ -77,13 +77,13 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       passwordTextController.text,
                       context);
                 },
-                child: Text(
-                  "Login",
-                  style: Styles.defaultStyle.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color:
-                        theme == "dark" ? AppColors.primaryColor : AppColors.lightGrey,
-                  ),
+                child: DokanHishabeeTextWidget(
+                  text: "Login",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: theme == "dark"
+                      ? AppColors.primaryColor
+                      : AppColors.lightGrey,
                 ),
               ),
             ),
