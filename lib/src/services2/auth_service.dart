@@ -6,6 +6,8 @@ import 'package:amar_dokan_app/src/helpers/shared_preference_helper.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService {
+  
+
   Future<bool> login(String mobile, String password) async {
     try {
       var headers = {"Content-Type": "application/json"};

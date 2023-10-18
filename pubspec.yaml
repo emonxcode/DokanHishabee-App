@@ -25,6 +25,8 @@ dependencies:
   intl: ^0.18.0
   flutter_launcher_icons: ^0.13.1
   image_picker: ^1.0.4
+  dio: ^5.3.3
+  encrypt: ^5.0.3
 
 dev_dependencies:
   flutter_test:
