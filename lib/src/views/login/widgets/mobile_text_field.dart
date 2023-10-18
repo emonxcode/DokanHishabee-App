@@ -1,4 +1,5 @@
 import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
+import 'package:amar_dokan_app/src/helpers/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -32,14 +33,14 @@ class MobileTextField extends StatelessWidget {
                 blurRadius: 2,
                 spreadRadius: 2,
                 color: theme == "light"
-                    ? Color.fromARGB(255, 236, 236, 233)
-                    : Colors.black,
+                    ? AppColors.lightGrey
+                    : Theme.of(context).scaffoldBackgroundColor
               ),
             ],
             borderRadius: BorderRadius.circular(15),
             color: theme == "light"
-                ? Colors.white
-                : Color.fromARGB(255, 92, 92, 92),
+                ? AppColors.whiteColor
+                : AppColors.darkGrey
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -52,8 +53,8 @@ class MobileTextField extends StatelessWidget {
                   contentPadding: EdgeInsets.zero,
                   border: InputBorder.none,
                   hintText: "Enter Mobile Number",
-                  fillColor: Colors.green,
-                  focusColor: Colors.green,
+                  fillColor: AppColors.primaryColor,
+                  focusColor: AppColors.primaryColor,
                   prefixIcon: Icon(Icons.mobile_screen_share),
                 ),
               ),
@@ -61,7 +62,7 @@ class MobileTextField extends StatelessWidget {
                   controller.mabileFieldError! != "")
                 Text(
                   controller.mabileFieldError!,
-                  style: Styles.defaultStyle.copyWith(color: Colors.red),
+                  style: Styles.defaultStyle.copyWith(color: AppColors.redColor),
                 ),
             ],
           ),

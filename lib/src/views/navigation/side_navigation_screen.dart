@@ -1,5 +1,6 @@
 import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
 import 'package:amar_dokan_app/src/helpers/utils/app_space.dart';
+import 'package:amar_dokan_app/src/helpers/utils/colors.dart';
 import 'package:amar_dokan_app/src/providers/side_navigation_provider.dart';
 import 'package:amar_dokan_app/src/views/home.dart';
 import 'package:amar_dokan_app/src/views/products/products_screen.dart';
@@ -29,7 +30,7 @@ class SideNavigation extends ConsumerWidget {
                   child: Container(
                     height: double.infinity,
                     width: double.infinity,
-                    color: Colors.black87,
+                    color: AppColors.darkColor,
                     child: SingleChildScrollView(
                       child: Column(
                         children: [

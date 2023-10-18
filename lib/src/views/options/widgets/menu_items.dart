@@ -1,4 +1,5 @@
 import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
+import 'package:amar_dokan_app/src/helpers/utils/colors.dart';
 import 'package:amar_dokan_app/src/views/category/category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -41,20 +42,18 @@ class OptionsItemView extends ConsumerWidget {
         height: 100,
         width: context.width * 0.35,
         decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(0, 0),
-              blurRadius: 2,
-              spreadRadius: 2,
-              color: theme == "light"
-                  ? Color.fromARGB(255, 236, 236, 233)
-                  : Color.fromARGB(255, 27, 27, 27),
-            )
-          ],
-          borderRadius: BorderRadius.circular(15),
-          color:
-              theme == "light" ? Colors.white : Color.fromARGB(255, 54, 54, 54),
-        ),
+            boxShadow: [
+              BoxShadow(
+                  offset: Offset(0, 0),
+                  blurRadius: 2,
+                  spreadRadius: 2,
+                  color: theme == "light"
+                      ? AppColors.lightGrey
+                      : Theme.of(context).scaffoldBackgroundColor)
+            ],
+            borderRadius: BorderRadius.circular(15),
+            color:
+                theme == "light" ? AppColors.whiteColor : AppColors.darkGrey),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

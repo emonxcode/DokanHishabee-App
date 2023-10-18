@@ -1,4 +1,5 @@
 import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
+import 'package:amar_dokan_app/src/helpers/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -37,14 +38,14 @@ class _PasswordTextFieldState extends ConsumerState<PasswordTextField> {
                 blurRadius: 2,
                 spreadRadius: 2,
                 color: theme == "light"
-                    ? Color.fromARGB(255, 236, 236, 233)
-                    : Colors.black,
+                    ? AppColors.lightGrey
+                    : Theme.of(context).scaffoldBackgroundColor
               ),
             ],
             borderRadius: BorderRadius.circular(15),
             color: theme == "light"
-                ? Colors.white
-                : Color.fromARGB(255, 92, 92, 92),
+                ? AppColors.whiteColor
+                : AppColors.darkGrey
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +74,7 @@ class _PasswordTextFieldState extends ConsumerState<PasswordTextField> {
                   controller.passFieldError!.isNotEmpty)
                 Text(
                   controller.passFieldError!,
-                  style: Styles.defaultStyle.copyWith(color: Colors.red),
+                  style: Styles.defaultStyle.copyWith(color: AppColors.redColor),
                 ),
             ],
           ),

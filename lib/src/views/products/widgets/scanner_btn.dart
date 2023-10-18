@@ -1,3 +1,4 @@
+import 'package:amar_dokan_app/src/helpers/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../main.dart';
@@ -22,13 +23,12 @@ class ScannerButton extends StatelessWidget {
               blurRadius: 2,
               spreadRadius: 2,
               color: theme == "light"
-                  ? Color.fromARGB(255, 236, 236, 233)
-                  : Colors.black,
+                  ? AppColors.lightGrey
+                  : Theme.of(context).scaffoldBackgroundColor,
             )
           ],
           borderRadius: BorderRadius.circular(15),
-          color:
-              theme == "light" ? Colors.white : Color.fromARGB(255, 92, 92, 92),
+          color: theme == "light" ? AppColors.whiteColor : AppColors.darkGrey,
         ),
         child: Center(
           child: Icon(Icons.document_scanner),
