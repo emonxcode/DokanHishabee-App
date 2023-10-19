@@ -2,6 +2,7 @@ import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
 import 'package:amar_dokan_app/src/helpers/shared_preference_helper.dart';
 import 'package:amar_dokan_app/src/helpers/styles/styles.dart';
 import 'package:amar_dokan_app/src/helpers/utils/app_space.dart';
+import 'package:amar_dokan_app/src/helpers/utils/colors.dart';
 import 'package:amar_dokan_app/src/views/login/login_screen.dart';
 import 'package:amar_dokan_app/src/views/widgets/dokan_hishabee_text.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   text: "Dokan Hishabee - দোকান হিসাবী",
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  
+                  color: AppColors.primaryColor,
                 ),
                 AppSpace.spaceH10,
                 Text(

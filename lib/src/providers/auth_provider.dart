@@ -1,8 +1,10 @@
 import 'package:amar_dokan_app/src/repository/authenticationl_repository.dart';
-import 'package:amar_dokan_app/src/services2/auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gif/gif.dart';
 
+import '../helpers/utils/colors.dart';
 import '../views/navigation/side_navigation_screen.dart';
 
 final authencationProvider =
@@ -20,16 +22,37 @@ class AuthenticationController extends ChangeNotifier {
   bool isErrorMessage = false;
   bool isLoading = false;
 
-  Future login(String mobile, String password, BuildContext context) async {
-    isLoading = true;
+  Future login(String mobile, String password, BuildContext context,
+      _gifController) async {
     var response;
+    isLoading = true;
     notifyListeners();
     try {
       if (formValidation(mobile, password)) {
-        response = await authRepo.login({"mobile": mobile, "password": password});
+        Loader.show(
+          context,
+          progressIndicator: Gif(
+            height: 80,
+            width: 80,
+            image: AssetImage("assets/image/omicron_loader.gif"),
+         colorBlendMode: BlendMode.darken,
+            controller: _gifController,
+            autostart: Autostart.loop,
+            placeholder: (context) => Material(child: Text('Loading...')),
+            onFetchCompleted: () {
+              _gifController!.reset();
+              _gifController!.forward();
+            },
+          ),
+        );
+        await Future.delayed(Duration(seconds: 5));
+        response =
+            await authRepo.login({"mobile": mobile, "password": password});
 
         if (response['success'] == true) {
           message = "Successful";
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(message)));
           isErrorMessage = false;
           notifyListeners();
           Future.delayed(Duration(seconds: 1)).then(
@@ -42,7 +65,10 @@ class AuthenticationController extends ChangeNotifier {
           );
         } else {
           message = "Login Failed!";
+
           isErrorMessage = true;
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(message)));
           notifyListeners();
         }
       }
@@ -50,9 +76,12 @@ class AuthenticationController extends ChangeNotifier {
       loginStatus = false;
       message = ex.toString();
       isErrorMessage = true;
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(message)));
       notifyListeners();
     }
     isLoading = false;
+    Loader.hide();
     notifyListeners();
   }
 

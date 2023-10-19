@@ -67,10 +67,9 @@ class OptionsItemView extends ConsumerWidget {
             Text(
               label,
               style: Styles.h1.copyWith(
-                color: theme == "light"
-                    ? Colors.black54
-                    : Color.fromARGB(255, 255, 255, 255),
-              ),
+                  color: theme == "light"
+                      ? AppColors.darkColor
+                      : AppColors.lightGrey),
             ),
           ],
         ),

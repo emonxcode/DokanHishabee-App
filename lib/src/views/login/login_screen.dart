@@ -3,11 +3,11 @@ import 'package:amar_dokan_app/src/providers/auth_provider.dart';
 import 'package:amar_dokan_app/src/views/widgets/dokan_hishabee_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gif/gif.dart';
 
 import '../../../main.dart';
 import '../../helpers/utils/app_space.dart';
 import '../../helpers/utils/colors.dart';
-import 'widgets/message_widget.dart';
 import 'widgets/mobile_text_field.dart';
 import 'widgets/password_text_field.dart';
 
@@ -18,10 +18,18 @@ class LoginScreen extends ConsumerStatefulWidget {
   ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends ConsumerState<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen>
+    with TickerProviderStateMixin {
   var mobileTextController = TextEditingController();
   var passwordTextController = TextEditingController();
   AuthenticationController? _controller;
+  GifController? _gifController;
+
+  @override
+  void initState() {
+    super.initState();
+    _gifController = GifController(vsync: this);
+  }
 
   @override
   void didChangeDependencies() {
@@ -48,12 +56,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             AppSpace.spaceH10,
             DokanHishabeeTextWidget(
               text: "Dokan Hishabee - দোকান হিসাবী",
-              color: theme == "dark" ? AppColors.lightGrey : AppColors.darkGrey,
+              color: AppColors.primaryColor,
               fontSize: 18,
             ),
-            AppSpace.spaceH10,
-            MessageWidget(),
-            AppSpace.spaceH10,
+            AppSpace.spaceH20,
             MobileTextField(mobileTextController: mobileTextController),
             AppSpace.spaceH18,
             PasswordTextField(passwordTextController: passwordTextController),
@@ -72,10 +78,13 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
                 onPressed: () async {
                   FocusManager.instance.primaryFocus?.unfocus();
+
                   await ref.read(authencationProvider.notifier).login(
-                      mobileTextController.text,
-                      passwordTextController.text,
-                      context);
+                        mobileTextController.text,
+                        passwordTextController.text,
+                        context,
+                        _gifController,
+                      );
                 },
                 child: DokanHishabeeTextWidget(
                   text: "Login",

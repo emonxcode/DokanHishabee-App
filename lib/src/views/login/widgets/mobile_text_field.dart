@@ -47,6 +47,7 @@ class MobileTextField extends StatelessWidget {
             children: [
               TextField(
                 controller: mobileTextController,
+                keyboardType: TextInputType.number,
                 textAlignVertical: TextAlignVertical.center,
                 style: TextStyle(fontSize: 18),
                 decoration: InputDecoration(

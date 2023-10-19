@@ -52,6 +52,7 @@ class _PasswordTextFieldState extends ConsumerState<PasswordTextField> {
             children: [
               TextField(
                 controller: widget.passwordTextController,
+                keyboardType: TextInputType.number,
                 textAlignVertical: TextAlignVertical.center,
                 style: TextStyle(fontSize: 18),
                 obscureText: !controller.showPass,
