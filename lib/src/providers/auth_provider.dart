@@ -6,6 +6,7 @@ import 'package:gif/gif.dart';
 
 import '../helpers/utils/colors.dart';
 import '../views/navigation/side_navigation_screen.dart';
+import '../views/widgets/omicron_loader.dart';
 
 final authencationProvider =
     ChangeNotifierProvider.autoDispose<AuthenticationController>(
@@ -23,28 +24,13 @@ class AuthenticationController extends ChangeNotifier {
   bool isLoading = false;
 
   Future login(String mobile, String password, BuildContext context,
-      _gifController) async {
+      TickerProvider tickerProvider) async {
     var response;
     isLoading = true;
     notifyListeners();
     try {
       if (formValidation(mobile, password)) {
-        Loader.show(
-          context,
-          progressIndicator: Gif(
-            height: 80,
-            width: 80,
-            image: AssetImage("assets/image/omicron_loader.gif"),
-         colorBlendMode: BlendMode.darken,
-            controller: _gifController,
-            autostart: Autostart.loop,
-            placeholder: (context) => Material(child: Text('Loading...')),
-            onFetchCompleted: () {
-              _gifController!.reset();
-              _gifController!.forward();
-            },
-          ),
-        );
+        OmicronLoader.showLoader(tickerProvider, context);
         await Future.delayed(Duration(seconds: 5));
         response =
             await authRepo.login({"mobile": mobile, "password": password});
@@ -81,7 +67,7 @@ class AuthenticationController extends ChangeNotifier {
       notifyListeners();
     }
     isLoading = false;
-    Loader.hide();
+    OmicronLoader.hideLoader();
     notifyListeners();
   }
 

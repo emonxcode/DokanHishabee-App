@@ -4,7 +4,6 @@ import 'package:amar_dokan_app/src/views/widgets/dokan_hishabee_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gif/gif.dart';
-
 import '../../../main.dart';
 import '../../helpers/utils/app_space.dart';
 import '../../helpers/utils/colors.dart';
@@ -23,13 +22,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
   var mobileTextController = TextEditingController();
   var passwordTextController = TextEditingController();
   AuthenticationController? _controller;
-  GifController? _gifController;
-
-  @override
-  void initState() {
-    super.initState();
-    _gifController = GifController(vsync: this);
-  }
+ 
 
   @override
   void didChangeDependencies() {
@@ -83,7 +76,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                         mobileTextController.text,
                         passwordTextController.text,
                         context,
-                        _gifController,
+                        this
                       );
                 },
                 child: DokanHishabeeTextWidget(
