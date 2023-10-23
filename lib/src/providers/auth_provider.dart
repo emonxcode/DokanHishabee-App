@@ -1,11 +1,9 @@
 import 'package:amar_dokan_app/src/repository/authenticationl_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gif/gif.dart';
-
-import '../helpers/utils/colors.dart';
+import '../helpers/shared_preference_helper.dart';
 import '../views/navigation/side_navigation_screen.dart';
+import '../views/widgets/omicron_loader.dart';
 
 final authencationProvider =
     ChangeNotifierProvider.autoDispose<AuthenticationController>(
@@ -23,31 +21,15 @@ class AuthenticationController extends ChangeNotifier {
   bool isLoading = false;
 
   Future login(String mobile, String password, BuildContext context,
-      _gifController) async {
+      TickerProvider tickerProvider) async {
     var response;
     isLoading = true;
     notifyListeners();
     try {
       if (formValidation(mobile, password)) {
-        Loader.show(
-          context,
-          progressIndicator: Gif(
-            height: 80,
-            width: 80,
-            image: AssetImage("assets/image/omicron_loader.gif"),
-         colorBlendMode: BlendMode.darken,
-            controller: _gifController,
-            autostart: Autostart.loop,
-            placeholder: (context) => Material(child: Text('Loading...')),
-            onFetchCompleted: () {
-              _gifController!.reset();
-              _gifController!.forward();
-            },
-          ),
-        );
+        OmicronLoader.showLoader(tickerProvider, context);
         await Future.delayed(Duration(seconds: 5));
-        response =
-            await authRepo.login({"mobile": mobile, "password": password});
+        response = await authRepo.login({"mobile": mobile, "password": password});
 
         if (response['success'] == true) {
           message = "Successful";
@@ -55,6 +37,15 @@ class AuthenticationController extends ChangeNotifier {
               .showSnackBar(SnackBar(content: Text(message)));
           isErrorMessage = false;
           notifyListeners();
+          await SharedPreferencesHelper.setToken(response['token']);
+          await SharedPreferencesHelper.setLoginUserName(response['user']['name']);
+          await SharedPreferencesHelper.setLoginUserMobileNo(response['user']['mobile']);
+          await SharedPreferencesHelper.setUserAddress(response['user']['address']);
+          await SharedPreferencesHelper.setShopId(response['user']['shop_id']);
+          await SharedPreferencesHelper.setUserId(response['user']['id']);
+          await SharedPreferencesHelper.setRole(response['user']['role']);
+          await SharedPreferencesHelper.setSubcriptionStatus(response['user']['subscription_status']);
+          await SharedPreferencesHelper.setLoginFlag(true);
           Future.delayed(Duration(seconds: 1)).then(
             (value) => Navigator.pushReplacement(
               context,
@@ -81,7 +72,7 @@ class AuthenticationController extends ChangeNotifier {
       notifyListeners();
     }
     isLoading = false;
-    Loader.hide();
+    OmicronLoader.hideLoader();
     notifyListeners();
   }
 

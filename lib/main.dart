@@ -15,7 +15,7 @@ void main() async {
   await SharedPreferencesHelper.init();
   theme = await SharedPreferencesHelper.getTheme();
   runApp(ProviderScope(child: MyApp()));
-}
+} 
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
