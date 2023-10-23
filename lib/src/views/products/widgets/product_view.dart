@@ -32,7 +32,7 @@ class ProductView extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: Image.asset("assets/images/box.png"),
+                child: Image.asset("assets/images/cart.jpg"),
               ),
             ),
           ),

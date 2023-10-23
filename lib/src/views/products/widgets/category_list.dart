@@ -19,7 +19,7 @@ class _CategoryListViewState extends ConsumerState<CategoryListView> {
     var controller = ref.watch(productsProvider);
 
     return Container(
-      height: context.height * 0.14,
+      height: context.height * 0.12,
       width: context.width,
       child: ListView.builder(
         itemCount: controller.categoryList.length,
