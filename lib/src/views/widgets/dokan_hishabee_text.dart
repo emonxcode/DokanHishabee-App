@@ -26,17 +26,13 @@ class DokanHishabeeTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      // textAlign: TextAlign.left,
       softWrap: true,
       overflow: overflow,
-      textAlign: textAlign ??
-          TextAlign
-              .start, // I used ellipsis, but it works with others (fade, clip, etc.)
-
-      maxLines: maxLines ?? 1,
+      textAlign: textAlign ?? TextAlign.start,
+      maxLines: maxLines ?? null,
       style: TextStyle(
         fontWeight: fontWeight ?? FontWeight.normal,
-        fontSize: fontSize ?? 18,
+        fontSize: fontSize ?? 15,
         color: color ?? AppColors.primaryColor,
         overflow: maxLines != null ? TextOverflow.ellipsis : null,
         decoration: textDecoration,

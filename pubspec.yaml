@@ -49,7 +49,7 @@ flutter:
   assets:
     - pubspec.yaml
     - assets/logo/
-    - assets/image/
+    - assets/images/
     - assets/fonts/
     - i18n/
 

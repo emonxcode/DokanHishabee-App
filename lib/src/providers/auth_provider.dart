@@ -1,10 +1,7 @@
 import 'package:amar_dokan_app/src/repository/authenticationl_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gif/gif.dart';
-
-import '../helpers/utils/colors.dart';
+import '../helpers/shared_preference_helper.dart';
 import '../views/navigation/side_navigation_screen.dart';
 import '../views/widgets/omicron_loader.dart';
 
@@ -32,8 +29,7 @@ class AuthenticationController extends ChangeNotifier {
       if (formValidation(mobile, password)) {
         OmicronLoader.showLoader(tickerProvider, context);
         await Future.delayed(Duration(seconds: 5));
-        response =
-            await authRepo.login({"mobile": mobile, "password": password});
+        response = await authRepo.login({"mobile": mobile, "password": password});
 
         if (response['success'] == true) {
           message = "Successful";
@@ -41,6 +37,15 @@ class AuthenticationController extends ChangeNotifier {
               .showSnackBar(SnackBar(content: Text(message)));
           isErrorMessage = false;
           notifyListeners();
+          await SharedPreferencesHelper.setToken(response['token']);
+          await SharedPreferencesHelper.setLoginUserName(response['user']['name']);
+          await SharedPreferencesHelper.setLoginUserMobileNo(response['user']['mobile']);
+          await SharedPreferencesHelper.setUserAddress(response['user']['address']);
+          await SharedPreferencesHelper.setShopId(response['user']['shop_id']);
+          await SharedPreferencesHelper.setUserId(response['user']['id']);
+          await SharedPreferencesHelper.setRole(response['user']['role']);
+          await SharedPreferencesHelper.setSubcriptionStatus(response['user']['subscription_status']);
+          await SharedPreferencesHelper.setLoginFlag(true);
           Future.delayed(Duration(seconds: 1)).then(
             (value) => Navigator.pushReplacement(
               context,
