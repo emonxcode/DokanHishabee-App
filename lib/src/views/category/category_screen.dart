@@ -25,7 +25,7 @@ class CategoryScreen extends ConsumerWidget {
             child: Column(
               children: [
                CustomMenuAppBar(
-                  logoUrl: 'assets/image/category.png',
+                  logoUrl: 'assets/images/category.png',
                   title: "Categories",
                 ),
                 AppSpace.spaceH10,
