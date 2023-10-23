@@ -36,7 +36,9 @@ class _OptionsScreenState extends State<OptionsScreen> {
                 Text(
                   "Options",
                   style: Styles.pagetitle.copyWith(
-                    color: theme == "light" ? AppColors.darkColor : AppColors.whiteColor,
+                    color: theme == "light"
+                        ? AppColors.darkColor
+                        : AppColors.whiteColor,
                   ),
                 ),
                 AppSpace.spaceH20,
@@ -44,13 +46,13 @@ class _OptionsScreenState extends State<OptionsScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     OptionsItemView(
-                      imgUrl: 'assets/image/category.png',
+                      imgUrl: 'assets/images/category.png',
                       label: 'Category',
                       routeID: "category",
                     ),
                     AppSpace.spaceW16,
                     OptionsItemView(
-                      imgUrl: 'assets/image/units.png',
+                      imgUrl: 'assets/images/units.png',
                       label: 'Units',
                       routeID: "units",
                     ),
@@ -61,13 +63,13 @@ class _OptionsScreenState extends State<OptionsScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     OptionsItemView(
-                      imgUrl: 'assets/image/history.png',
+                      imgUrl: 'assets/images/history.png',
                       label: 'Sales History',
                       routeID: "sh",
                     ),
                     AppSpace.spaceW16,
                     OptionsItemView(
-                      imgUrl: 'assets/image/due.png',
+                      imgUrl: 'assets/images/due.png',
                       label: 'Due',
                       routeID: "due",
                     ),
@@ -78,13 +80,13 @@ class _OptionsScreenState extends State<OptionsScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     OptionsItemView(
-                      imgUrl: 'assets/image/supplier.png',
+                      imgUrl: 'assets/images/supplier.png',
                       label: 'Suppliers',
                       routeID: "supp",
                     ),
                     AppSpace.spaceW16,
                     OptionsItemView(
-                      imgUrl: 'assets/image/customer.png',
+                      imgUrl: 'assets/images/customer.png',
                       label: 'Customers',
                       routeID: "cus",
                     ),
@@ -95,13 +97,13 @@ class _OptionsScreenState extends State<OptionsScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     OptionsItemView(
-                      imgUrl: 'assets/image/settings.png',
+                      imgUrl: 'assets/images/settings.png',
                       label: 'Settings',
                       routeID: "sett",
                     ),
                     AppSpace.spaceW16,
                     OptionsItemView(
-                      imgUrl: 'assets/image/account.png',
+                      imgUrl: 'assets/images/account.png',
                       label: 'Account',
                       routeID: "acc",
                     ),
@@ -117,7 +119,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
                     // ),
                     // AppSpace.spaceW16,
                     OptionsItemView(
-                      imgUrl: 'assets/image/info.png',
+                      imgUrl: 'assets/images/info.png',
                       label: 'About Us',
                       routeID: "ab",
                     ),

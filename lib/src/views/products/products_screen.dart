@@ -10,7 +10,6 @@ import 'package:simple_animation_transition/simple_animation_transition.dart';
 import '../../../main.dart';
 import 'widgets/category_list.dart';
 import 'widgets/product_list.dart';
-import 'widgets/product_view.dart';
 import 'widgets/scanner_btn.dart';
 import 'widgets/search_bar.dart';
 

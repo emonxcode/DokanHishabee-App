@@ -27,7 +27,7 @@ class UnitsScreen extends ConsumerWidget {
             child: Column(
               children: [
                 CustomMenuAppBar(
-                  logoUrl: 'assets/image/units.png',
+                  logoUrl: 'assets/images/units.png',
                   title: "Units",
                 ),
                 AppSpace.spaceH10,
