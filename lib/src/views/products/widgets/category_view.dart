@@ -19,9 +19,9 @@ class CategoryView extends StatelessWidget {
         controller.selectCategory(index);
       },
       child: Container(
-        height: context.height * 0.1,
+        height: context.height * 0.12,
         width: 120,
-        margin: EdgeInsets.only(right: 10),
+        margin: EdgeInsets.only(right: 13),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: AppColors.lightGrey,
@@ -36,8 +36,9 @@ class CategoryView extends StatelessWidget {
               left: 0,
               right: 0,
               child: Container(
-                height: context.height * 0.14 - 30,
+                height: context.height * 0.12 - 30,
                 width: 120,
+                // padding: EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.only(
@@ -50,7 +51,7 @@ class CategoryView extends StatelessWidget {
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
                   ),
-                  child: Image.asset("assets/images/box.png"),
+                  child: Image.asset("assets/images/cat.png"),
                 ),
               ),
             ),
