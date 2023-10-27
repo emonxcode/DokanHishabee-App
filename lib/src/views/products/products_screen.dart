@@ -5,9 +5,8 @@ import 'package:amar_dokan_app/src/providers/products_provider.dart';
 import 'package:amar_dokan_app/src/views/widgets/dokan_hishabee_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 import 'package:simple_animation_transition/simple_animation_transition.dart';
-import '../../../main.dart';
+import 'widgets/app_bar.dart';
 import 'widgets/category_list.dart';
 import 'widgets/product_list.dart';
 import 'widgets/scanner_btn.dart';
@@ -21,10 +20,42 @@ class ProductsScreen extends ConsumerStatefulWidget {
 }
 
 class _ProductsScreenState extends ConsumerState<ProductsScreen> {
+  GlobalKey<ScaffoldState> scaffolldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     var controller = ref.watch(productsProvider);
+
     return Scaffold(
+      key: scaffolldKey,
+      endDrawer: Container(
+        height: context.height * 0.8,
+        width: context.width * 0.7,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: AppColors.whiteColor,
+        ),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                AppSpace.spaceW10,
+                const DokanHishabeeTextWidget(
+                  text: "Cart",
+                  fontSize: 20,
+                ),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(Icons.close),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
       body: SlideAnimatedWidget(
         direction: SlideDirectionType.fromOffset,
         duration: const Duration(milliseconds: 300),
@@ -38,21 +69,7 @@ class _ProductsScreenState extends ConsumerState<ProductsScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppSpace.spaceH4,
-                DokanHishabeeTextWidget(
-                  text: "Bismillah General Store",
-                  color: theme == "light"
-                      ? AppColors.darkColor
-                      : AppColors.whiteColor,
-                  fontSize: 22,
-                  fontWeight: FontWeight.normal,
-                ),
-                DokanHishabeeTextWidget(
-                  text:
-                      "All Products - ${DateFormat('dd MMMM yyy').format(DateTime.now())}",
-                  color: AppColors.darkGrey,
-                  fontSize: 18,
-                  fontWeight: FontWeight.normal,
-                ),
+                ProductPageAppBar(scaffolldKey: scaffolldKey),
                 AppSpace.spaceH18,
                 const Row(
                   children: [

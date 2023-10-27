@@ -1,6 +1,5 @@
 import 'package:amar_dokan_app/src/helpers/extensions/extensions.dart';
 import 'package:flutter/material.dart';
-
 import '../../../helpers/utils/colors.dart';
 import '../../../providers/products_provider.dart';
 import '../../widgets/dokan_hishabee_text.dart';
