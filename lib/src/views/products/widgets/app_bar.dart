@@ -20,7 +20,7 @@ class ProductPageAppBar extends StatelessWidget {
       children: [
         Column(
           children: [
-            DokanHishabeeTextWidget(
+            DokanHishabeeTextWidget( 
               text: "Bismillah General Store",
               color:
                   theme == "light" ? AppColors.darkColor : AppColors.whiteColor,

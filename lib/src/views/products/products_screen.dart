@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:simple_animation_transition/simple_animation_transition.dart';
 import 'widgets/app_bar.dart';
 import 'widgets/category_list.dart';
+import 'widgets/end_drawer.dart';
 import 'widgets/product_list.dart';
 import 'widgets/scanner_btn.dart';
 import 'widgets/search_bar.dart';
@@ -35,26 +36,7 @@ class _ProductsScreenState extends ConsumerState<ProductsScreen> {
           borderRadius: BorderRadius.circular(15),
           color: AppColors.whiteColor,
         ),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                AppSpace.spaceW10,
-                const DokanHishabeeTextWidget(
-                  text: "Cart",
-                  fontSize: 20,
-                ),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(Icons.close),
-                ),
-              ],
-            )
-          ],
-        ),
+        child: const EndDrawerWidget(),
       ),
       body: SlideAnimatedWidget(
         direction: SlideDirectionType.fromOffset,

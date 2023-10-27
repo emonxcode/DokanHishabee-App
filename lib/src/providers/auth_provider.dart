@@ -28,7 +28,7 @@ class AuthenticationController extends ChangeNotifier {
     try {
       if (formValidation(mobile, password)) {
         OmicronLoader.showLoader(tickerProvider, context);
-        await Future.delayed(Duration(seconds: 5));
+        await Future.delayed(const Duration(seconds: 5));
         response = await authRepo.login({"mobile": mobile, "password": password});
 
         if (response['success'] == true) {
@@ -46,7 +46,7 @@ class AuthenticationController extends ChangeNotifier {
           await SharedPreferencesHelper.setRole(response['user']['role']);
           await SharedPreferencesHelper.setSubcriptionStatus(response['user']['subscription_status']);
           await SharedPreferencesHelper.setLoginFlag(true);
-          Future.delayed(Duration(seconds: 1)).then(
+          Future.delayed(const Duration(seconds: 1)).then(
             (value) => Navigator.pushReplacement(
               context,
               MaterialPageRoute(
