@@ -3,7 +3,6 @@ import 'package:amar_dokan_app/src/helpers/shared_preference_helper.dart';
 import 'package:amar_dokan_app/src/helpers/styles/styles.dart';
 import 'package:amar_dokan_app/src/helpers/utils/app_space.dart';
 import 'package:amar_dokan_app/src/helpers/utils/colors.dart';
-import 'package:amar_dokan_app/src/views/login/login_screen.dart';
 import 'package:amar_dokan_app/src/views/widgets/dokan_hishabee_text.dart';
 import 'package:flutter/material.dart';
 import '../navigation/side_navigation_screen.dart';
@@ -25,20 +24,20 @@ class _SplashScreenState extends State<SplashScreen> {
   goRoute() async {
     var isLoggedIn = await SharedPreferencesHelper.getLoginFlag();
     if (isLoggedIn) {
-      Future.delayed(Duration(seconds: 2)).then(
+      Future.delayed(const Duration(seconds: 2)).then(
         (value) => Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => SideNavigation(),
+            builder: (context) => const SideNavigation(),
           ),
         ),
       );
     } else {
-      Future.delayed(Duration(seconds: 2)).then(
+      Future.delayed(const Duration(seconds: 2)).then(
         (value) => Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => LoginScreen(),
+            builder: (context) => const SideNavigation(),
           ),
         ),
       );
@@ -58,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
                   height: 100,
                   width: 100,
                   child: Image.asset(
@@ -66,7 +65,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ),
                 AppSpace.spaceH18,
-                DokanHishabeeTextWidget(
+                const DokanHishabeeTextWidget(
                   text: "Dokan Hishabee - দোকান হিসাবী",
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
@@ -81,28 +80,29 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ),
           Positioned(
-              bottom: 10,
-              left: 10,
-              right: 10,
-              child: SizedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 50,
-                      width: 50,
-                      child: Image.asset(
-                        "assets/logo/omicron.png",
-                      ),
+            bottom: 10,
+            left: 10,
+            right: 10,
+            child: SizedBox(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 50,
+                    width: 50,
+                    child: Image.asset(
+                      "assets/logo/omicron.png",
                     ),
-                    AppSpace.spaceW10,
-                    Text(
-                      "OMICRON",
-                      style: Styles.pagetitle.copyWith(fontSize: 15),
-                    ),
-                  ],
-                ),
-              ))
+                  ),
+                  AppSpace.spaceW10,
+                  Text(
+                    "OMICRON",
+                    style: Styles.pagetitle.copyWith(fontSize: 15),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

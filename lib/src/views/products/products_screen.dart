@@ -27,13 +27,13 @@ class _ProductsScreenState extends ConsumerState<ProductsScreen> {
     return Scaffold(
       body: SlideAnimatedWidget(
         direction: SlideDirectionType.fromOffset,
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         offset: Offset(0, context.height * 0.5),
         child: SafeArea(
           child: Container(
             height: context.height,
             width: context.width,
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -54,7 +54,7 @@ class _ProductsScreenState extends ConsumerState<ProductsScreen> {
                   fontWeight: FontWeight.normal,
                 ),
                 AppSpace.spaceH18,
-                Row(
+                const Row(
                   children: [
                     ProductSearchBar(),
                     Spacer(),
@@ -62,16 +62,16 @@ class _ProductsScreenState extends ConsumerState<ProductsScreen> {
                   ],
                 ),
                 AppSpace.spaceH10,
-                DokanHishabeeTextWidget(
+                const DokanHishabeeTextWidget(
                   text: "Categories",
                   color: AppColors.darkGrey,
                   fontSize: 18,
                   fontWeight: FontWeight.normal,
                 ),
                 AppSpace.spaceH4,
-                CategoryListView(),
+                const CategoryListView(),
                 AppSpace.spaceH10,
-                DokanHishabeeTextWidget(
+                const DokanHishabeeTextWidget(
                   text: "Select Products",
                   color: AppColors.darkGrey,
                   fontSize: 18,
@@ -87,4 +87,3 @@ class _ProductsScreenState extends ConsumerState<ProductsScreen> {
     );
   }
 }
-

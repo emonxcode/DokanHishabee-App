@@ -3,7 +3,6 @@ import 'package:amar_dokan_app/src/providers/auth_provider.dart';
 import 'package:amar_dokan_app/src/views/widgets/dokan_hishabee_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gif/gif.dart';
 import '../../../main.dart';
 import '../../helpers/utils/app_space.dart';
 import '../../helpers/utils/colors.dart';
@@ -11,7 +10,7 @@ import 'widgets/mobile_text_field.dart';
 import 'widgets/password_text_field.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
-  LoginScreen({super.key});
+ const LoginScreen({super.key});
 
   @override
   ConsumerState<LoginScreen> createState() => _LoginScreenState();
@@ -33,13 +32,13 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         height: context.height,
         width: context.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
               height: 100,
               width: 100,
               child: Image.asset(
@@ -47,7 +46,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
               ),
             ),
             AppSpace.spaceH10,
-            DokanHishabeeTextWidget(
+           const DokanHishabeeTextWidget(
               text: "Dokan Hishabee - দোকান হিসাবী",
               color: AppColors.primaryColor,
               fontSize: 18,

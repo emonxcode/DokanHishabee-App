@@ -21,13 +21,13 @@ class CategoryView extends StatelessWidget {
       child: Container(
         height: context.height * 0.12,
         width: 120,
-        margin: EdgeInsets.only(right: 13),
+        margin: const EdgeInsets.only(right: 13),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(22),
           color: AppColors.lightGrey,
           border: controller.selectedCategory != index
               ? null
-              : Border.all(width: 5, color: AppColors.primaryColor),
+              : Border.all(width: 6, color: AppColors.primaryColor),
         ),
         child: Stack(
           children: [
@@ -39,7 +39,7 @@ class CategoryView extends StatelessWidget {
                 height: context.height * 0.12 - 30,
                 width: 120,
                 // padding: EdgeInsets.all(5),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
@@ -47,7 +47,7 @@ class CategoryView extends StatelessWidget {
                   ),
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
                   ),
@@ -62,7 +62,7 @@ class CategoryView extends StatelessWidget {
               child: Container(
                 height: 30,
                 width: 120,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: AppColors.darkGrey,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(15),
