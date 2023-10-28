@@ -19,7 +19,7 @@ class ScannerButton extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              offset: Offset(0, 0),
+              offset: const Offset(0, 0),
               blurRadius: 2,
               spreadRadius: 2,
               color: theme == "light"
@@ -30,7 +30,7 @@ class ScannerButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           color: theme == "light" ? AppColors.whiteColor : AppColors.darkGrey,
         ),
-        child: Center(
+        child: const Center(
           child: Icon(Icons.document_scanner),
         ),
       ),

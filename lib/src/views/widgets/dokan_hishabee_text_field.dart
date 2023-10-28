@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class DokanHishabeeTextField extends StatelessWidget {
   const DokanHishabeeTextField(
       {Key? key,
@@ -42,7 +41,7 @@ class DokanHishabeeTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       maxLines: maxLines,
-      obscureText: obscureText!,
+      obscureText: obscureText ?? false,
       controller: controller,
       onFieldSubmitted: onFieldSubmitted,
       textInputAction: TextInputAction.next,
@@ -62,8 +61,8 @@ class DokanHishabeeTextField extends StatelessWidget {
   }
 }
 
-class GaribookCustomDisabledTextFormField extends StatelessWidget {
-  const GaribookCustomDisabledTextFormField(
+class DokanHishabeeCustomDisabledTextFormField extends StatelessWidget {
+  const DokanHishabeeCustomDisabledTextFormField(
       {Key? key,
       this.hint,
       this.maxLines,
@@ -130,26 +129,26 @@ formInputDecoration(
       fontSize: 16,
       color: Color.fromARGB(255, 0, 0, 0),
     ),
-    fillColor: fillColor ?? Colors.white,
+    fillColor: fillColor ?? const Color.fromARGB(255, 245, 245, 245),
     filled: true,
     contentPadding: EdgeInsets.symmetric(
         horizontal: horizontal ?? 10, vertical: vertical ?? 10),
     // labelText: labelText.tr,
     border: const OutlineInputBorder(
       borderRadius: BorderRadius.all(
-        Radius.circular(8.00),
+        Radius.circular(15.0),
       ),
     ),
     enabledBorder: OutlineInputBorder(
       borderSide: BorderSide(color: color ?? const Color(0xffF1F1F1), width: 0),
       borderRadius: const BorderRadius.all(
-        Radius.circular(8.00),
+        Radius.circular(15.0),
       ),
     ),
     focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(color: color ?? Colors.black12, width: 2),
       borderRadius: const BorderRadius.all(
-        Radius.circular(8.00),
+        Radius.circular(15.0),
       ),
     ),
     hintText: hintText,

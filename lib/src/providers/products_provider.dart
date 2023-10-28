@@ -10,6 +10,7 @@ class ProductsController extends ChangeNotifier {
   Ref ref;
 
   List<dynamic> categoryList = [
+    "সকল পণ্য",
     "মুদি মাল",
     "পানীয়",
     "বিস্কুট",
@@ -20,6 +21,38 @@ class ProductsController extends ChangeNotifier {
 
   void selectCategory(int index) {
     selectedCategory = index;
+    notifyListeners();
+  }
+
+  List<dynamic> productList = [
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+    {"name": "বাসমোতি চাউল ৫০ কেজি", "isSelected": false},
+  ];
+
+  void selectProduct(int index) {
+    productList[index]['isSelected'] = !productList[index]['isSelected'];
     notifyListeners();
   }
 }

@@ -14,7 +14,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferencesHelper.init();
   theme = await SharedPreferencesHelper.getTheme();
-  runApp(ProviderScope(child: MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 } 
 
 class MyApp extends ConsumerWidget {
@@ -30,18 +30,18 @@ class MyApp extends ConsumerWidget {
       darkTheme: Themes.darkTheme,
       themeMode: themeModeState,
       locale: locale,
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en', 'US'),
         Locale('bn', 'BD'), 
       ],
-      localizationsDelegates: [
+      localizationsDelegates: const [
         LocalizationHelper.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
