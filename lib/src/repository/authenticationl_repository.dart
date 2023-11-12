@@ -1,12 +1,9 @@
 
-
-import 'package:amar_dokan_app/src/helpers/constants/api_endpoints.dart';
-
-import '../service/base_service.dart';
+import '../constants/api_endpoints.dart';
 import '../service/network_api_service.dart';
 
 class AuthenticationRepository {
-  BaseApiServices _apiServices = NetworkApiServices();
+  final _apiServices = NetworkApiServices();
   // Future<dynamic> requestOTP(dynamic data) async {
   //   try {
   //     dynamic response = await _apiServices.postApi(data, Urls.otpRequest);

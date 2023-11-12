@@ -1,6 +1,6 @@
-import 'package:amar_dokan_app/src/helpers/constants/api_endpoints.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import '../constants/api_endpoints.dart';
 import 'base_service.dart';
 
 class NetworkApiServices extends BaseApiServices {

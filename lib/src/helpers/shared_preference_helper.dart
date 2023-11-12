@@ -1,11 +1,11 @@
 //import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
-
-import 'package:amar_dokan_app/src/helpers/l10n/local_extension.dart';
+import 'package:amar_dokan_app/src/l10n/local_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'constants/enums.dart';
+import '../constants/enums.dart';
+
 
 class SharedPreferencesHelper {
   static SharedPreferences? prefs;
