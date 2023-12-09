@@ -1,6 +1,6 @@
 
-import '../constants/api_endpoints.dart';
-import '../service/network_api_service.dart';
+import '../../constants/api_endpoints.dart';
+import '../../service/network_api_service.dart';
 
 class AuthenticationRepository {
   final _apiServices = NetworkApiServices();

@@ -1,18 +1,17 @@
-
 import 'package:amar_dokan_app/src/extensions/extensions.dart';
-import 'package:amar_dokan_app/src/modules/products/providers/products_provider.dart';
+import 'package:amar_dokan_app/src/modules/products/controller/products_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:simple_animation_transition/simple_animation_transition.dart';
-import '../../utils/app_space.dart';
-import '../../utils/colors.dart';
-import '../widgets/dokan_hishabee_text.dart';
-import 'widgets/app_bar.dart';
-import 'widgets/category_list.dart';
-import 'widgets/end_drawer.dart';
-import 'widgets/product_list.dart';
-import 'widgets/scanner_btn.dart';
-import 'widgets/search_bar.dart';
+import '../../../utils/app_space.dart';
+import '../../../utils/colors.dart';
+import '../../widgets/dokan_hishabee_text.dart';
+import 'components/app_bar.dart';
+import 'components/category_list.dart';
+import 'components/end_drawer.dart';
+import 'components/product_list.dart';
+import 'components/scanner_btn.dart';
+import 'components/search_bar.dart';
 
 class ProductsScreen extends ConsumerStatefulWidget {
   const ProductsScreen({super.key});
@@ -29,6 +28,7 @@ class _ProductsScreenState extends ConsumerState<ProductsScreen> {
     var controller = ref.watch(productsProvider);
 
     return Scaffold(
+      backgroundColor: AppColors.whiteColor,
       key: scaffolldKey,
       endDrawer: Container(
         height: context.height * 0.8,
@@ -65,7 +65,7 @@ class _ProductsScreenState extends ConsumerState<ProductsScreen> {
                 const DokanHishabeeTextWidget(
                   text: "Categories",
                   color: AppColors.darkGrey,
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.normal,
                 ),
                 AppSpace.spaceH4,
@@ -74,7 +74,7 @@ class _ProductsScreenState extends ConsumerState<ProductsScreen> {
                 const DokanHishabeeTextWidget(
                   text: "Select Products",
                   color: AppColors.darkGrey,
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.normal,
                 ),
                 AppSpace.spaceH10,

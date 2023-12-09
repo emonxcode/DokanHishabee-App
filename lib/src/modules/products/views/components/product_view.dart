@@ -1,11 +1,10 @@
-
 import 'package:amar_dokan_app/src/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../providers/products_provider.dart';
-import '../../../utils/app_space.dart';
-import '../../../utils/colors.dart';
-import '../../widgets/dokan_hishabee_text.dart';
+import '../../controller/products_provider.dart';
+import '../../../../utils/app_space.dart';
+import '../../../../utils/colors.dart';
+import '../../../widgets/dokan_hishabee_text.dart';
 
 class ProductView extends ConsumerStatefulWidget {
   const ProductView({super.key, required this.index, required this.product});
@@ -52,7 +51,7 @@ class _ProductViewState extends ConsumerState<ProductView> {
               DokanHishabeeTextWidget(
                 text: widget.product['name'],
                 color: AppColors.darkColor.withOpacity(0.5),
-                fontSize: 15,
+                fontSize: 14,
                 fontWeight: FontWeight.normal,
                 maxLines: 2,
               ),

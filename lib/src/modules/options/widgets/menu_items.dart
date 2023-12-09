@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../main.dart';
 import '../../../utils/app_space.dart';
 import '../../../utils/colors.dart';
-import '../../../utils/log/styles/styles.dart';
 import '../../navigation/providers/side_navigation_provider.dart';
 import '../../category/category_screen.dart';
 import '../../units/units_screen.dart';
@@ -46,13 +45,11 @@ class OptionsItemView extends ConsumerWidget {
                   offset: const Offset(0, 0),
                   blurRadius: 2,
                   spreadRadius: 2,
-                  color: theme == "light"
-                      ? AppColors.lightGrey
-                      : Theme.of(context).scaffoldBackgroundColor)
+                  color:AppColors.lightGrey)
             ],
             borderRadius: BorderRadius.circular(15),
             color:
-                theme == "light" ? AppColors.whiteColor : AppColors.darkGrey),
+               AppColors.whiteColor,),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -65,10 +62,10 @@ class OptionsItemView extends ConsumerWidget {
             AppSpace.spaceH10,
             Text(
               label,
-              style: Styles.h1.copyWith(
-                  color: theme == "light"
-                      ? AppColors.darkColor
-                      : AppColors.lightGrey),
+              // style: Styles.h1.copyWith(
+              //     color: theme == "light"
+              //         ? AppColors.darkColor
+              //         : AppColors.lightGrey),
             ),
           ],
         ),

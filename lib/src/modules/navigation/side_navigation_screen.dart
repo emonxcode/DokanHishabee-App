@@ -7,7 +7,7 @@ import '../../l10n/local_helper.dart';
 import '../../utils/app_space.dart';
 import '../../utils/colors.dart';
 import '../options/options_screen.dart';
-import '../products/products_screen.dart';
+import '../products/views/products_screen.dart';
 import 'widgets/sideMenuButton.dart';
 
 class SideNavigation extends ConsumerWidget {
@@ -33,20 +33,12 @@ class SideNavigation extends ConsumerWidget {
                   child: Column(
                     children: [
                       AppSpace.spaceH30,
-                      AppSpace.spaceH10,
                       SideMenuButton(
                         menuColorValue: controller.menuColorValue![0],
                         menuColorIndex: 0,
                         icon: Icons.store,
                         label: LocalizationHelper.of(context)!.products!,
                         screen: const ProductsScreen(),
-                      ),
-                      SideMenuButton(
-                        menuColorValue: controller.menuColorValue![1],
-                        menuColorIndex: 1,
-                        icon: Icons.shopping_cart,
-                        label: LocalizationHelper.of(context)!.sale!,
-                        screen: const HomeScreen(),
                       ),
                       SideMenuButton(
                         menuColorValue: controller.menuColorValue![2],

@@ -1,5 +1,5 @@
 import 'package:amar_dokan_app/src/extensions/extensions.dart';
-import 'package:amar_dokan_app/src/modules/products/providers/products_provider.dart';
+import 'package:amar_dokan_app/src/modules/products/controller/products_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'category_view.dart';
@@ -21,10 +21,11 @@ class _CategoryListViewState extends ConsumerState<CategoryListView> {
     return SizedBox(
       height: context.height * 0.12,
       width: context.width,
-      child: ListView.builder(
+      child: ListView.separated(
         itemCount: controller.categoryList.length,
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
+        separatorBuilder: (context, index) => const SizedBox(width: 8.0),
         itemBuilder: (context, index) {
           return CategoryView(controller: controller, index: index);
         },

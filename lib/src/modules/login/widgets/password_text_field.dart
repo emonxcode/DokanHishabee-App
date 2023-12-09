@@ -1,11 +1,8 @@
-
 import 'package:amar_dokan_app/src/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../../../main.dart';
 import '../../../utils/colors.dart';
-import '../../../utils/log/styles/styles.dart';
 import '../providers/auth_provider.dart';
 
 class PasswordTextField extends ConsumerStatefulWidget {
@@ -42,9 +39,7 @@ class _PasswordTextFieldState extends ConsumerState<PasswordTextField> {
               ),
             ],
             borderRadius: BorderRadius.circular(15),
-            color: theme == "light"
-                ? AppColors.whiteColor
-                : AppColors.darkGrey
+            color:AppColors.whiteColor
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -74,7 +69,7 @@ class _PasswordTextFieldState extends ConsumerState<PasswordTextField> {
                   controller.passFieldError!.isNotEmpty)
                 Text(
                   controller.passFieldError!,
-                  style: Styles.defaultStyle.copyWith(color: AppColors.redColor),
+                  //style: Styles.defaultStyle.copyWith(color: AppColors.redColor),
                 ),
             ],
           ),

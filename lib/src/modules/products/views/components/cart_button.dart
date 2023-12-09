@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../main.dart';
-import '../../../utils/colors.dart';
-import '../../widgets/dokan_hishabee_text.dart';
+import '../../../../../main.dart';
+import '../../../../utils/colors.dart';
+import '../../../widgets/dokan_hishabee_text.dart';
 
 class CartButton extends StatelessWidget {
   const CartButton({
@@ -36,13 +36,11 @@ class CartButton extends StatelessWidget {
                 offset: const Offset(0, 0),
                 blurRadius: 2,
                 spreadRadius: 2,
-                color: theme == "light"
-                    ? AppColors.lightGrey
-                    : Theme.of(context).scaffoldBackgroundColor,
+                color:  AppColors.lightGrey,
               )
             ],
             borderRadius: BorderRadius.circular(15),
-            color: theme == "light" ? AppColors.whiteColor : AppColors.darkGrey,
+            color: AppColors.whiteColor 
           ),
           child: const Center(
             child: Icon(Icons.shopping_cart),

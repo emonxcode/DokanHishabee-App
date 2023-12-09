@@ -1,7 +1,7 @@
-import 'package:amar_dokan_app/src/modules/products/widgets/product_view.dart';
+import 'package:amar_dokan_app/src/modules/products/views/components/product_view.dart';
 import 'package:flutter/material.dart';
 
-import '../providers/products_provider.dart';
+import '../../controller/products_provider.dart';
 
 class ProductList extends StatelessWidget {
   const ProductList({
@@ -19,7 +19,7 @@ class ProductList extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          childAspectRatio: 0.75,
+          childAspectRatio: 0.68,
           crossAxisSpacing: 5,
           mainAxisSpacing: 10,
         ),

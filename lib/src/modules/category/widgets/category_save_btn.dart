@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/log/styles/styles.dart';
 
 class CategorySaveButton extends StatelessWidget {
   const CategorySaveButton({
@@ -10,10 +9,11 @@ class CategorySaveButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: 2,
       child: InkWell(
         onTap: () {},
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(15),
               bottomRight: Radius.circular(15),
@@ -24,13 +24,12 @@ class CategorySaveButton extends StatelessWidget {
           child: Center(
             child: Text(
               "SAVE",
-              style:
-                  Styles.pagetitle.copyWith(color: Colors.white, fontSize: 17),
+              // style:
+              //     Styles.pagetitle.copyWith(color: Colors.white, fontSize: 17),
             ),
           ),
         ),
       ),
-      flex: 2,
     );
   }
 }

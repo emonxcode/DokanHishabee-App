@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../products/products_screen.dart';
+import '../../products/views/products_screen.dart';
 
 final sideNavigationProvider =
     ChangeNotifierProvider.autoDispose<SideNavigationController>(

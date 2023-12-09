@@ -1,9 +1,8 @@
-
 import 'package:amar_dokan_app/src/extensions/extensions.dart';
 import 'package:flutter/material.dart';
-import '../providers/products_provider.dart';
-import '../../../utils/colors.dart';
-import '../../widgets/dokan_hishabee_text.dart';
+import '../../controller/products_provider.dart';
+import '../../../../utils/colors.dart';
+import '../../../widgets/dokan_hishabee_text.dart';
 
 class CategoryView extends StatelessWidget {
   const CategoryView(
@@ -21,7 +20,6 @@ class CategoryView extends StatelessWidget {
       child: Container(
         height: context.height * 0.12,
         width: 120,
-        margin: const EdgeInsets.only(right: 13),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(22),
           color: AppColors.lightGrey,
@@ -73,7 +71,7 @@ class CategoryView extends StatelessWidget {
                   child: DokanHishabeeTextWidget(
                     text: controller.categoryList[index],
                     color: AppColors.whiteColor.withOpacity(0.9),
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.normal,
                   ),
                 ),

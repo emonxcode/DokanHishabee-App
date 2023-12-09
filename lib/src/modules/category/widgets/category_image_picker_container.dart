@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../main.dart';
-
 class ImagePickerContainer extends StatelessWidget {
   const ImagePickerContainer({
     super.key,
@@ -16,9 +14,7 @@ class ImagePickerContainer extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: theme == "light"
-              ? Color.fromARGB(255, 243, 243, 243)
-              : Color.fromARGB(255, 131, 131, 131),
+          color:Color.fromARGB(255, 243, 243, 243)
         ),
         child: Center(
           child: Icon(

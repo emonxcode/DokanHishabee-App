@@ -20,15 +20,11 @@ class CategoryNameField extends StatelessWidget {
               offset: Offset(0, 0),
               blurRadius: 2,
               spreadRadius: 2,
-              color: theme == "light"
-                  ? Color.fromARGB(255, 238, 238, 238)
-                  : Color.fromARGB(255, 87, 87, 87),
+              color: Color.fromARGB(255, 238, 238, 238)
             ),
           ],
           borderRadius: BorderRadius.circular(15),
-          color: theme == "light"
-              ? Color.fromARGB(255, 255, 255, 255)
-              : Color.fromARGB(255, 124, 124, 124),
+          color:Color.fromARGB(255, 255, 255, 255)
         ),
         child: TextField(
           textAlignVertical: TextAlignVertical.center,

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../../../main.dart';
-import '../../../utils/colors.dart';
-import '../../widgets/dokan_hishabee_text.dart';
+import '../../../../utils/colors.dart';
+import '../../../widgets/dokan_hishabee_text.dart';
 import 'cart_button.dart';
 
 class ProductPageAppBar extends StatelessWidget {
@@ -18,19 +17,19 @@ class ProductPageAppBar extends StatelessWidget {
     return Row(
       children: [
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DokanHishabeeTextWidget( 
+            const DokanHishabeeTextWidget(
               text: "Bismillah General Store",
-              color:
-                  theme == "light" ? AppColors.darkColor : AppColors.whiteColor,
-              fontSize: 22,
+              color: AppColors.darkColor,
+              fontSize: 20,
               fontWeight: FontWeight.normal,
             ),
             DokanHishabeeTextWidget(
               text:
                   "All Products - ${DateFormat('dd MMMM yyy').format(DateTime.now())}",
               color: AppColors.darkGrey,
-              fontSize: 18,
+              fontSize: 15,
               fontWeight: FontWeight.normal,
             ),
           ],

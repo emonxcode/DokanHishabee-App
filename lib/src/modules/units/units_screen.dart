@@ -47,9 +47,7 @@ class UnitsScreen extends ConsumerWidget {
                       ),
                     ],
                     borderRadius: BorderRadius.circular(15),
-                    color: theme == "light"
-                        ? Colors.white
-                        : const Color.fromARGB(255, 92, 92, 92),
+                    color:  Colors.white
                   ),
                   child: const Column(
                     children: [

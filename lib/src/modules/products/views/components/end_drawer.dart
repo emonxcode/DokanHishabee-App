@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
-import '../../../utils/app_space.dart';
-import '../../../utils/colors.dart';
-import '../../widgets/dokan_hishabee_text.dart';
-import '../../widgets/dokan_hishabee_text_field.dart';
+import '../../../../utils/app_space.dart';
+import '../../../../utils/colors.dart';
+import '../../../widgets/dokan_hishabee_text.dart';
+import '../../../widgets/dokan_hishabee_text_field.dart';
 
 class EndDrawerWidget extends StatelessWidget {
   const EndDrawerWidget({
@@ -81,7 +80,7 @@ class EndDrawerWidget extends StatelessWidget {
                       child: DokanHishabeeTextWidget(
                         text: "বাসমোতি চাউল ৫০ কেজি",
                         color: AppColors.darkGrey,
-                        fontSize: 18,
+                        fontSize: 15,
                       ),
                     ),
                     Row(
@@ -91,7 +90,7 @@ class EndDrawerWidget extends StatelessWidget {
                           child: DokanHishabeeTextWidget(
                             text: "2x5 = ৳ 250",
                             color: AppColors.darkGrey,
-                            fontSize: 18,
+                            fontSize: 14,
                           ),
                         ),
                         const Spacer(),

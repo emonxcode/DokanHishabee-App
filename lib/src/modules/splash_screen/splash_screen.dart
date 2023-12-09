@@ -1,10 +1,9 @@
 
 import 'package:amar_dokan_app/src/extensions/extensions.dart';
 import 'package:flutter/material.dart';
-import '../../helpers/shared_preference_helper.dart';
+import '../../local/shared_preference_helper.dart';
 import '../../utils/app_space.dart';
 import '../../utils/colors.dart';
-import '../../utils/log/styles/styles.dart';
 import '../navigation/side_navigation_screen.dart';
 import '../widgets/dokan_hishabee_text.dart';
 
@@ -75,7 +74,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 AppSpace.spaceH10,
                 Text(
                   "v1.0.0",
-                  style: Styles.defaultStyle,
+                 // style: Styles.defaultStyle,
                 ),
               ],
             ),
@@ -98,7 +97,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   AppSpace.spaceW10,
                   Text(
                     "OMICRON",
-                    style: Styles.pagetitle.copyWith(fontSize: 15),
+                   // style: Styles.pagetitle.copyWith(fontSize: 15),
                   ),
                 ],
               ),

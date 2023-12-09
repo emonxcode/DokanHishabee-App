@@ -62,9 +62,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
               width: context.width * 0.8,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: theme == "light"
-                      ? AppColors.primaryColor
-                      : AppColors.lightGrey,
+                  backgroundColor: AppColors.primaryColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
@@ -83,9 +81,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                   text: "Login",
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
-                  color: theme == "dark"
-                      ? AppColors.primaryColor
-                      : AppColors.lightGrey,
+                  color:  AppColors.primaryColor
                 ),
               ),
             ),

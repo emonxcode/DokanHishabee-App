@@ -1,11 +1,11 @@
 import 'package:amar_dokan_app/src/extensions/extensions.dart';
+import 'package:amar_dokan_app/src/modules/widgets/dokan_hishabee_text.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_animation_transition/simple_animation_transition.dart';
 
 import '../../../main.dart';
 import '../../utils/app_space.dart';
 import '../../utils/colors.dart';
-import '../../utils/log/styles/styles.dart';
 import 'widgets/menu_items.dart';
 
 class OptionsScreen extends StatefulWidget {
@@ -30,19 +30,17 @@ class _OptionsScreenState extends State<OptionsScreen> {
           child: SizedBox(
             height: context.height,
             width: context.width,
-            child: Column(
+            child: const Column(
               children: [
                 AppSpace.spaceH10,
-                Text(
-                  "Options",
-                  style: Styles.pagetitle.copyWith(
-                    color: theme == "light"
-                        ? AppColors.darkColor
-                        : AppColors.whiteColor,
-                  ),
+                DokanHishabeeTextWidget(
+                  text: "Options",
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.darkGrey,
                 ),
                 AppSpace.spaceH20,
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     OptionsItemView(
@@ -59,7 +57,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
                   ],
                 ),
                 AppSpace.spaceH16,
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     OptionsItemView(
@@ -76,7 +74,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
                   ],
                 ),
                 AppSpace.spaceH16,
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     OptionsItemView(
@@ -93,7 +91,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
                   ],
                 ),
                 AppSpace.spaceH16,
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     OptionsItemView(
@@ -110,7 +108,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
                   ],
                 ),
                 AppSpace.spaceH16,
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // OptionsItemView(

@@ -1,7 +1,7 @@
-import 'package:amar_dokan_app/src/repository/authenticationl_repository.dart';
+import 'package:amar_dokan_app/src/repositories/auth_repo/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../helpers/shared_preference_helper.dart';
+import '../../../local/shared_preference_helper.dart';
 import '../../navigation/side_navigation_screen.dart';
 import '../../widgets/omicron_loader.dart';
 
@@ -34,7 +34,7 @@ class AuthenticationController extends ChangeNotifier {
         if (response['success'] == true) {
           message = "Successful";
           ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(message)));
+              .showSnackBar(SnackBar(content: Text(message),),);
           isErrorMessage = false;
           notifyListeners();
           await SharedPreferencesHelper.setToken(response['token']);
