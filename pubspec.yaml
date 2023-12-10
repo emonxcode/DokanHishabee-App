@@ -37,7 +37,8 @@ dependencies:
   flutter_gen: ^5.3.2
   dropdown_button2: ^2.3.9
   calendar_timeline: ^1.1.2
-  d_chart: ^2.6.3
+  unique_simple_bar_chart: ^0.0.4
+  month_year_picker: ^0.3.0+1
 
 
 
