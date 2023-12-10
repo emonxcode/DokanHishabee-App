@@ -30,14 +30,14 @@ dependencies:
   flutter_overlay_loader: ^2.0.0
   animations: ^2.0.7
   intl: ^0.18.0
-  isar: ^3.0.5
-  isar_flutter_libs: ^3.0.5
   logger: ^1.1.0
   path: ^1.8.2
   path_provider: ^2.0.12
   riverpod_annotation: ^2.3.0
   flutter_gen: ^5.3.2
   dropdown_button2: ^2.3.9
+  calendar_timeline: ^1.1.2
+  d_chart: ^2.6.3
 
 
 

@@ -1,5 +1,5 @@
 
-import 'package:amar_dokan_app/src/extensions/extensions.dart';
+import 'package:amar_dokan_app/src/utils/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import '../../local/shared_preference_helper.dart';
 import '../../utils/app_space.dart';

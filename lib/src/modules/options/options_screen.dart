@@ -1,9 +1,7 @@
-import 'package:amar_dokan_app/src/extensions/extensions.dart';
+import 'package:amar_dokan_app/src/utils/extensions/extensions.dart';
 import 'package:amar_dokan_app/src/modules/widgets/dokan_hishabee_text.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_animation_transition/simple_animation_transition.dart';
-
-import '../../../main.dart';
 import '../../utils/app_space.dart';
 import '../../utils/colors.dart';
 import 'widgets/menu_items.dart';
@@ -22,7 +20,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: SafeArea( 
         child: SlideAnimatedWidget(
           direction: SlideDirectionType.fromOffset,
           duration: const Duration(milliseconds: 300),

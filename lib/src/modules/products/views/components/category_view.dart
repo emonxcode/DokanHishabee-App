@@ -1,4 +1,4 @@
-import 'package:amar_dokan_app/src/extensions/extensions.dart';
+import 'package:amar_dokan_app/src/utils/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import '../../controller/products_provider.dart';
 import '../../../../utils/colors.dart';
