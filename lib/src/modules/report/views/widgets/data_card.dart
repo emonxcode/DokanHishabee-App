@@ -1,3 +1,4 @@
+import 'package:amar_dokan_app/src/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../widgets/dokan_hishabee_text.dart';
@@ -36,7 +37,7 @@ class DataCardView extends StatelessWidget {
             ),
             DokanHishabeeTextWidget(
               text: label.toString(),
-              color: Colors.green,
+              color: AppColors.darkGrey,
               fontWeight: FontWeight.normal,
               fontSize: 20,
             ),
