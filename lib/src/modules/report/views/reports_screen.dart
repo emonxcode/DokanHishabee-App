@@ -5,8 +5,7 @@ import 'package:amar_dokan_app/src/utils/extensions/extensions.dart';
 import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
-import 'package:month_year_picker/month_year_picker.dart';
-import 'package:pie_chart/pie_chart.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 import 'package:simple_animation_transition/simple_animation_transition.dart';
 import 'package:unique_simple_bar_chart/data_models.dart';
 import 'package:unique_simple_bar_chart/simple_bar_chart.dart';
@@ -133,71 +132,28 @@ class _ReportsScreenState extends State<ReportsScreen> {
                   ),
                   AppSpace.spaceH6,
                   Container(
-                    height: 210,
                     width: context.width,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: const Color.fromARGB(255, 255, 238, 216),
                     ),
-                    child: Column(
+                    child: const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          height: 120,
-                          child: PieChart(
-                            dataMap: const {
-                              "Total Sales": 666000,
-                              "Profit": 66600,
-                            },
-                            animationDuration:
-                                const Duration(milliseconds: 800),
-                            chartLegendSpacing: 32,
-                            chartRadius:
-                                MediaQuery.of(context).size.width / 3.2,
-                            colorList: const [
-                              Colors.indigo,
-                              Colors.green,
-                            ],
-                            initialAngleInDegree: 0,
-                            chartType: ChartType.disc,
-                            ringStrokeWidth: 5,
-                            centerText: "",
-                            legendOptions: const LegendOptions(
-                              showLegendsInRow: false,
-                              legendPosition: LegendPosition.left,
-                              showLegends: true,
-                              legendShape: BoxShape.circle,
-                              legendTextStyle: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            chartValuesOptions: const ChartValuesOptions(
-                              chartValueStyle: TextStyle(
-                                // fontSize: 15,
-                                color: AppColors.darkColor,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              showChartValueBackground: true,
-                              showChartValues: true,
-                              showChartValuesInPercentage: false,
-                              showChartValuesOutside: true,
-                              decimalPlaces: 1,
-                            ),
-                          ),
-                        ),
-                        AppSpace.spaceH10,
-                        const ProfitStatusValue(
+                        AppSpace.spaceH16,
+                        ProfitStatusValue(
                             value: 345,
                             label: "Proft",
                             labelSize: 15,
                             valueSize: 18),
-                        const SizedBox(height: 5),
-                        const ProfitStatusValue(
+                        AppSpace.spaceH10,
+                        ProfitStatusValue(
                             value: 345,
                             label: "Total Sales",
                             labelSize: 15,
                             valueSize: 18),
+                        AppSpace.spaceH16,
                       ],
                     ),
                   ),
@@ -241,7 +197,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                   const Align(
                     alignment: Alignment.topLeft,
                     child: DokanHishabeeTextWidget(
-                      text: "Last 10 days sales data",
+                      text: "Last 30 days sales data",
                       color: AppColors.darkGrey,
                       fontSize: 18,
                     ),
