@@ -6,6 +6,7 @@ import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
 import 'package:month_year_picker/month_year_picker.dart';
+import 'package:pie_chart/pie_chart.dart';
 import 'package:simple_animation_transition/simple_animation_transition.dart';
 import 'package:unique_simple_bar_chart/data_models.dart';
 import 'package:unique_simple_bar_chart/simple_bar_chart.dart';
@@ -108,7 +109,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                   Container(
                     padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
-                        color: AppColors.redColor.withOpacity(0.1),
+                        color: const Color.fromARGB(255, 255, 238, 216),
                         borderRadius: BorderRadiusDirectional.circular(10)),
                     child: CalendarTimeline(
                       initialDate: DateTime.now(),
@@ -128,57 +129,75 @@ class _ReportsScreenState extends State<ReportsScreen> {
                   ),
                   AppSpace.spaceH6,
                   const Divider(
-                    thickness: 2,
+                    thickness: 1,
                   ),
                   AppSpace.spaceH6,
                   Container(
-                    height: 80,
+                    height: 210,
                     width: context.width,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: AppColors.primaryColor,
+                      color: const Color.fromARGB(255, 255, 238, 216),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        AppSpace.spaceW10,
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            DokanHishabeeTextWidget(
-                              text: "Profit".toUpperCase(),
-                              color: const Color.fromARGB(255, 189, 255, 199),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25,
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Countup(
-                              begin: 0,
-                              end: 25500,
-                              style: const TextStyle(
-                                fontSize: 40,
+                        SizedBox(
+                          height: 120,
+                          child: PieChart(
+                            dataMap: const {
+                              "Total Sales": 666000,
+                              "Profit": 66600,
+                            },
+                            animationDuration:
+                                const Duration(milliseconds: 800),
+                            chartLegendSpacing: 32,
+                            chartRadius:
+                                MediaQuery.of(context).size.width / 3.2,
+                            colorList: const [
+                              Colors.indigo,
+                              Colors.green,
+                            ],
+                            initialAngleInDegree: 0,
+                            chartType: ChartType.disc,
+                            ringStrokeWidth: 5,
+                            centerText: "",
+                            legendOptions: const LegendOptions(
+                              showLegendsInRow: false,
+                              legendPosition: LegendPosition.left,
+                              showLegends: true,
+                              legendShape: BoxShape.circle,
+                              legendTextStyle: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                decoration: TextDecoration.underline,
-                                decorationColor: Colors.red,
-                                decorationStyle: TextDecorationStyle.solid,
-                                decorationThickness: 2,
                               ),
-                              duration: const Duration(milliseconds: 500),
                             ),
-                            AppSpace.spaceW10,
-                            const DokanHishabeeTextWidget(
-                              text: "Tk",
-                              color: Color.fromARGB(255, 189, 255, 199),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25,
+                            chartValuesOptions: const ChartValuesOptions(
+                              chartValueStyle: TextStyle(
+                                // fontSize: 15,
+                                color: AppColors.darkColor,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              showChartValueBackground: true,
+                              showChartValues: true,
+                              showChartValuesInPercentage: false,
+                              showChartValuesOutside: true,
+                              decimalPlaces: 1,
                             ),
-                          ],
+                          ),
                         ),
-                        AppSpace.spaceW16,
+                        AppSpace.spaceH10,
+                        const ProfitStatusValue(
+                            value: 345,
+                            label: "Proft",
+                            labelSize: 15,
+                            valueSize: 18),
+                        const SizedBox(height: 5),
+                        const ProfitStatusValue(
+                            value: 345,
+                            label: "Total Sales",
+                            labelSize: 15,
+                            valueSize: 18),
                       ],
                     ),
                   ),
@@ -188,8 +207,8 @@ class _ReportsScreenState extends State<ReportsScreen> {
                       DataCardView(
                         label: "Sales",
                         value: "3453",
-                        bgColor: Color.fromRGBO(253, 234, 236, 1),
-                        valueColor: Color.fromRGBO(252, 104, 119, 1),
+                        bgColor: Color.fromRGBO(230, 243, 236, 1),
+                        valueColor: Color.fromRGBO(32, 179, 100, 1),
                       ),
                       AppSpace.spaceW10,
                       DataCardView(
@@ -207,18 +226,18 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         label: "Expense",
                         value: "3453",
                         bgColor: Color.fromARGB(255, 243, 236, 216),
-                        valueColor: Color.fromARGB(255, 223, 172, 34),
+                        valueColor: Color.fromARGB(255, 199, 154, 31),
                       ),
                       AppSpace.spaceW10,
                       DataCardView(
-                        label: "Expense",
+                        label: "Due",
                         value: "3453",
-                        bgColor: Color.fromRGBO(230, 243, 236, 1),
-                        valueColor: Color.fromRGBO(39, 216, 121, 1),
+                        bgColor: Color.fromRGBO(253, 234, 236, 1),
+                        valueColor: Color.fromRGBO(252, 104, 119, 1),
                       ),
                     ],
                   ),
-                  AppSpace.spaceH20,
+                  AppSpace.spaceH30,
                   const Align(
                     alignment: Alignment.topLeft,
                     child: DokanHishabeeTextWidget(
@@ -294,7 +313,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                       ),
                     ),
                   ),
-                  AppSpace.spaceH20,
+                  AppSpace.spaceH30,
                   const Align(
                     alignment: Alignment.topLeft,
                     child: DokanHishabeeTextWidget(
@@ -466,6 +485,79 @@ class _ReportsScreenState extends State<ReportsScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class ProfitStatusValue extends StatelessWidget {
+  const ProfitStatusValue({
+    super.key,
+    required this.value,
+    required this.label,
+    required this.labelSize,
+    required this.valueSize,
+  });
+  final String label;
+  final double value;
+  final double labelSize;
+  final double valueSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        AppSpace.spaceW10,
+        Expanded(
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: DokanHishabeeTextWidget(
+              text: label,
+              color: const Color.fromARGB(255, 119, 119, 119),
+              fontWeight: FontWeight.bold,
+              fontSize: labelSize,
+            ),
+          ),
+        ),
+        DokanHishabeeTextWidget(
+          text: ":    ",
+          color: const Color.fromARGB(255, 68, 68, 68),
+          fontWeight: FontWeight.bold,
+          fontSize: labelSize,
+        ),
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadiusDirectional.circular(10),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Countup(
+                  begin: 0,
+                  end: value,
+                  style: TextStyle(
+                    fontSize: valueSize,
+                    fontWeight: FontWeight.bold,
+                    color: const Color.fromRGBO(32, 179, 100, 1),
+                    decorationStyle: TextDecorationStyle.solid,
+                    decorationThickness: 2,
+                  ),
+                  duration: const Duration(milliseconds: 2000),
+                ),
+                AppSpace.spaceW6,
+                DokanHishabeeTextWidget(
+                  text: "Tk",
+                  color: Colors.teal,
+                  fontWeight: FontWeight.bold,
+                  fontSize: labelSize,
+                ),
+              ],
+            ),
+          ),
+        ),
+        AppSpace.spaceW16,
+      ],
     );
   }
 }

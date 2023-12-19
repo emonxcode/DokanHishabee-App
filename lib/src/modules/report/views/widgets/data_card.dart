@@ -39,7 +39,7 @@ class DataCardView extends StatelessWidget {
               text: label.toString(),
               color: AppColors.darkGrey,
               fontWeight: FontWeight.normal,
-              fontSize: 20,
+              fontSize: 18,
             ),
           ],
         ),
