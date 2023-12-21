@@ -22,23 +22,40 @@ dependencies:
   simple_animation_transition: ^0.0.6
   flutter_localizations:
     sdk: flutter
-  intl: ^0.18.0
   flutter_launcher_icons: ^0.13.1
   image_picker: ^1.0.4
-  dio: ^5.3.3
   encrypt: ^5.0.3
   gif: ^2.2.0
   flutter_overlay_loader: ^2.0.0
+  animations: ^2.0.7
+  intl: ^0.18.0
+  logger: ^1.1.0
+  path: ^1.8.2
+  path_provider: ^2.0.12
+  riverpod_annotation: ^2.3.0
+  flutter_gen: ^5.3.2
+  dropdown_button2: ^2.3.9
+  calendar_timeline: ^1.1.2
+  unique_simple_bar_chart: ^0.0.4
+  month_year_picker: ^0.3.0+1
+  percent_indicator: ^4.2.3
+
+
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
+  isar_generator: ^3.0.5
+  build_runner: ^2.3.3
+  riverpod_generator: ^2.3.5
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/logo/app_logo.png"
   min_sdk_android: 21
+  flutter_lints: ^2.0.0
 
 
 
