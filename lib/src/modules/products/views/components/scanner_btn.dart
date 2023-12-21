@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../../main.dart';
@@ -12,24 +11,21 @@ class ScannerButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () async {
-        await SharedPreferencesHelper.setLoginFlag(false);
+        await LocalData.setLoginFlag(false);
       },
       child: Container(
         height: 50,
         width: 50,
         decoration: BoxDecoration(
-          boxShadow: const [
-            BoxShadow(
-              offset: Offset(0, 0),
-              blurRadius: 2,
-              spreadRadius: 2,
-              color:  AppColors.lightGrey
-                 
-            ),
-          ],
-          borderRadius: BorderRadius.circular(15),
-          color: AppColors.whiteColor
-        ),
+            boxShadow: const [
+              BoxShadow(
+                  offset: Offset(0, 0),
+                  blurRadius: 2,
+                  spreadRadius: 2,
+                  color: AppColors.lightGrey),
+            ],
+            borderRadius: BorderRadius.circular(15),
+            color: AppColors.whiteColor),
         child: const Center(
           child: Icon(Icons.document_scanner),
         ),

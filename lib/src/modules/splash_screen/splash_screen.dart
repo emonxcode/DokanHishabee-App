@@ -1,4 +1,4 @@
-
+import 'package:amar_dokan_app/src/modules/login/login_screen.dart';
 import 'package:amar_dokan_app/src/utils/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import '../../local/shared_preference_helper.dart';
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   goRoute() async {
-    var isLoggedIn = await SharedPreferencesHelper.getLoginFlag();
+    var isLoggedIn = await LocalData.getLoginFlag();
     if (isLoggedIn) {
       Future.delayed(const Duration(seconds: 2)).then(
         (value) => Navigator.pushReplacement(
@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
         (value) => Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const SideNavigation(),
+            builder: (context) => const LoginScreen(),
           ),
         ),
       );
@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           SizedBox(
@@ -72,10 +72,10 @@ class _SplashScreenState extends State<SplashScreen> {
                   color: AppColors.primaryColor,
                 ),
                 AppSpace.spaceH10,
-                Text(
-                  "v1.0.0",
-                 // style: Styles.defaultStyle,
-                ),
+                // Text(
+                //   "v1.0.0",
+                //  // style: Styles.defaultStyle,
+                // ),
               ],
             ),
           ),
@@ -96,8 +96,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                   AppSpace.spaceW10,
                   Text(
-                    "OMICRON",
-                   // style: Styles.pagetitle.copyWith(fontSize: 15),
+                    "Artix Studio",
+                    // style: Styles.pagetitle.copyWith(fontSize: 15),
                   ),
                 ],
               ),
