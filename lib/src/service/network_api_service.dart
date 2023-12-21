@@ -97,7 +97,7 @@ class NetworkApiServices extends BaseApiServices {
         return responseJson;
       default:
         throw Exception(
-            'Error ccoured while communicating with server ${response.statusCode}');
+            'Error ccoured while communicating with server ${response.statusCode}'); 
     }
   }
 }
