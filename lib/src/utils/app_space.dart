@@ -49,6 +49,9 @@ class AppSpace {
   static const SizedBox spaceH30 = SizedBox(
     height: AppDismens.space30,
   );
+  static const SizedBox spaceH50 = SizedBox(
+    height: AppDismens.space50,
+  );
   // height of the body
 
   static const SizedBox spaceW4 = SizedBox(
@@ -92,5 +95,8 @@ class AppSpace {
   );
   static const SizedBox spaceW30 = SizedBox(
     width: AppDismens.space30,
+  );
+  static const SizedBox spaceW50 = SizedBox(
+    width: AppDismens.space50,
   );
 }

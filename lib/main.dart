@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SharedPreferencesHelper.init();
+  await LocalData.init();
 
   runApp(const ProviderScope(child: MyApp()));
 }

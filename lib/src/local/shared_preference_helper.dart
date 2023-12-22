@@ -6,8 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../constants/enums.dart';
 
-
-class SharedPreferencesHelper {
+class LocalData {
   static SharedPreferences? prefs;
   static Future init() async {
     prefs = await SharedPreferences.getInstance();

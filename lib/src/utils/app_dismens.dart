@@ -17,4 +17,5 @@ class AppDismens {
   static const double space26 = 26;
   static const double space28 = 28;
   static const double space30 = 30;
+  static const double space50 = 50;
 }

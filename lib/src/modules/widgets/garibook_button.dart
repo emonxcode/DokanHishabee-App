@@ -63,8 +63,8 @@ class CustomButton extends StatelessWidget {
   }
 }
 
-class GaribookCustomButton extends StatelessWidget {
-  const GaribookCustomButton({
+class DokanHishabeeButton extends StatelessWidget {
+  const DokanHishabeeButton({
     required this.onTap,
     this.borderRadius,
     this.buttonColor,

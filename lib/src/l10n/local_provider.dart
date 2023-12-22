@@ -11,7 +11,7 @@ class LocaleNotifier extends StateNotifier<Locale> {
 
   void changeLanguage(SupportedLocale locale) {
     try {
-      SharedPreferencesHelper.saveLocale(locale);
+      LocalData.saveLocale(locale);
       state = Locale(locale.code);
     } catch (error) {
       state = Locale('en');
@@ -20,7 +20,7 @@ class LocaleNotifier extends StateNotifier<Locale> {
 
   void onAppStart() {
     try {
-      final locale = SharedPreferencesHelper.getLocale();
+      final locale = LocalData.getLocale();
       state = locale;
     } catch (error) {
       state = Locale('en');
