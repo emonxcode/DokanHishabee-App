@@ -122,8 +122,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                           ? () {
                               FocusScope.of(context).unfocus();
                               if (authKey.currentState!.validate()) {
-                                controller.login(
-                                    context: context, tickerProvider: this);
+                                controller.login(context: context);
                               }
                             }
                           : () {},

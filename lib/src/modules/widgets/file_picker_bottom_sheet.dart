@@ -4,7 +4,6 @@ import 'package:image_picker/image_picker.dart';
 import '../../utils/colors.dart';
 import 'dokan_hishabee_text.dart';
 
-
 class FilePicker extends StatelessWidget {
   File? file;
 
@@ -18,32 +17,30 @@ class FilePicker extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(top: 10),
             child: const DokanHishabeeTextWidget(
-              text: 'Select_Source',
+              text: 'Select option',
               //style: bb_text_style_24_bold_black,
 
-              fontSize: 22, color: AppColors.primaryColor,
+              fontSize: 22, color: AppColors.primaryTextColor,
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height / 6,
-            child: GridView(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                crossAxisSpacing: 5.0,
-                mainAxisSpacing: 5.0,
-              ),
-              physics: const NeverScrollableScrollPhysics(),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _bottomSheetOptions(
-                    context: context,
-                    label: 'CAMERA',
-                    icon: Icons.camera,
-                    onClicked: () => _selectedItem(context, 0)),
+                  context: context,
+                  label: 'Camera',
+                  icon: Icons.camera,
+                  onClicked: () => _selectedItem(context, 0),
+                ),
+                const SizedBox(width: 20),
                 _bottomSheetOptions(
-                    context: context,
-                    label: 'Gallery',
-                    icon: Icons.image,
-                    onClicked: () => _selectedItem(context, 1)),
+                  context: context,
+                  label: 'Gallery',
+                  icon: Icons.image,
+                  onClicked: () => _selectedItem(context, 1),
+                ),
               ],
             ),
           ),
@@ -56,14 +53,17 @@ class FilePicker extends StatelessWidget {
     switch (index) {
       case 0:
         await _openCamera(context);
-
-        Navigator.pop(context, file);
+        if (context.mounted) {
+          Navigator.pop(context, file);
+        }
 
         break;
       case 1:
         await _openGallery(context);
 
-        Navigator.pop(context, file);
+        if (context.mounted) {
+          Navigator.pop(context, file);
+        }
 
         break;
     }

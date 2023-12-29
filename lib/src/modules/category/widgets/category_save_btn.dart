@@ -1,17 +1,24 @@
+import 'package:amar_dokan_app/src/utils/colors.dart';
 import 'package:flutter/material.dart';
-
 
 class CategorySaveButton extends StatelessWidget {
   const CategorySaveButton({
     super.key,
+    required this.onTap,
+    required this.isLoading,
   });
+
+  final Function onTap;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       flex: 2,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          onTap();
+        },
         child: Container(
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
@@ -22,11 +29,14 @@ class CategorySaveButton extends StatelessWidget {
           ),
           width: double.infinity,
           child: Center(
-            child: Text(
-              "SAVE",
-              // style:
-              //     Styles.pagetitle.copyWith(color: Colors.white, fontSize: 17),
-            ),
+            child: isLoading
+                ? const CircularProgressIndicator(color: AppColors.whiteColor)
+                : const Text(
+                    "SAVE",
+                    style: TextStyle(
+                        color: AppColors.whiteColor,
+                        fontWeight: FontWeight.bold),
+                  ),
           ),
         ),
       ),

@@ -1,11 +1,10 @@
 import 'package:amar_dokan_app/src/modules/widgets/sneak_bar.dart';
-import 'package:amar_dokan_app/src/repositories/auth_repo/authentication_repository.dart';
+import 'package:amar_dokan_app/src/repositories/authentication_repository.dart';
 import 'package:amar_dokan_app/src/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../local/shared_preference_helper.dart';
 import '../../navigation/side_navigation_screen.dart';
-import '../../widgets/omicron_loader.dart';
 
 final authencationProvider = ChangeNotifierProvider<AuthenticationController>(
     (ref) => AuthenticationController());
@@ -18,24 +17,20 @@ class AuthenticationController extends ChangeNotifier {
   bool showPass = false;
   bool isLoading = false;
 
-  Future login(
-      {required BuildContext context,
-      required TickerProvider tickerProvider}) async {
+  Future login({required BuildContext context}) async {
     var response;
     isLoading = true;
     notifyListeners();
     try {
-      // OmicronLoader.showLoader(tickerProvider, context);
-      await Future.delayed(const Duration(seconds: 5));
       response = await authRepo.login({
         "mobile": mobileTextController.text,
         "password": passwordTextController.text
       });
-
+ 
       if (response['success'] == true) {
         mobileTextController.clear();
         passwordTextController.clear();
-        await LocalData.setToken(response['token']);
+        await LocalData.setToken(response['accessToken']);
         await LocalData.setLoginUserName(response['user']['name']);
         await LocalData.setLoginUserMobileNo(response['user']['mobile']);
         await LocalData.setUserAddress(response['user']['address']);
@@ -64,7 +59,6 @@ class AuthenticationController extends ChangeNotifier {
         notifyListeners();
       }
     } catch (ex) {
-
       if (context.mounted) {
         DokanSneakBar.customSnackBar(
           context: context,

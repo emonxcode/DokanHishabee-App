@@ -55,6 +55,14 @@ class LocalData {
     return prefs!.getString("accesstoken") ?? ''; // 4293467747
   }
 
+  static Future<bool> setRefreshToken(String? token) async {
+    return prefs!.setString("refreshtoken", token!);
+  }
+
+  static Future<String> getRefreshToken() async {
+    return prefs!.getString("refreshtoken") ?? ''; // 4293467747
+  }
+
   static Future<bool> setLoginUserId(int userId) async {
     return prefs!.setInt("loginUserId", userId);
   }
@@ -79,8 +87,8 @@ class LocalData {
     return prefs!.getString("user_mobile_no") ?? '';
   }
 
-  static Future<bool> setUserAddress(String user_address) async {
-    return prefs!.setString("address", user_address);
+  static Future<bool> setUserAddress(String userAddress) async {
+    return prefs!.setString("address", userAddress);
   }
 
   static Future<String> getUserAddress() async {

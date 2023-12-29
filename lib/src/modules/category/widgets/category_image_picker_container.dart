@@ -1,3 +1,4 @@
+import 'package:amar_dokan_app/src/modules/widgets/file_picker_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 class ImagePickerContainer extends StatelessWidget {
@@ -7,21 +8,18 @@ class ImagePickerContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 6,
-      child: Container(
-        width: double.infinity,
-        margin: EdgeInsets.symmetric(horizontal: 10),
-        decoration: BoxDecoration(
+    return Container(
+      height: 120,
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color:Color.fromARGB(255, 243, 243, 243)
-        ),
-        child: Center(
-          child: Icon(
-            Icons.add_a_photo,
-            size: 50,
-            color: Colors.black54,
-          ),
+          color: const Color.fromARGB(255, 243, 243, 243)),
+      child: const Center(
+        child: Icon(
+          Icons.add_a_photo,
+          size: 50,
+          color: Colors.black54,
         ),
       ),
     );

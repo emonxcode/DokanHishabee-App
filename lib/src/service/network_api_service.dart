@@ -27,8 +27,8 @@ class NetworkApiServices extends BaseApiServices {
         headers: headers,
       );
       responseJson = returnResponse(response);
-      log.i(response.body);
-      log.i(response.statusCode);
+      debugPrint(response.body);
+      debugPrint(response.statusCode.toString());
     } catch (e) {
       rethrow;
     }
@@ -45,8 +45,8 @@ class NetworkApiServices extends BaseApiServices {
   @override
   Future<dynamic> postApi(payload, url) async {
     if (kDebugMode) {
-      log.e(url);
-      log.e(payload);
+      debugPrint(url);
+      debugPrint(payload.toString());
     }
     var headers = {
       "Accept": "application/json",
@@ -54,7 +54,7 @@ class NetworkApiServices extends BaseApiServices {
       'X-Requested-With': 'XMLHttpRequest',
       'Authorization': 'Bearer ${await LocalData.getToken()}',
     };
-
+    debugPrint(await LocalData.getToken());
     dynamic responseJson;
     try {
       http.Response response = await http.post(
@@ -63,8 +63,8 @@ class NetworkApiServices extends BaseApiServices {
         body: json.encode(payload),
       );
       responseJson = returnResponse(response);
-      log.i(response.body);
-      log.i(response.statusCode);
+      debugPrint(response.body);
+      debugPrint(response.statusCode.toString());
     } catch (e) {
       rethrow;
     }
@@ -97,7 +97,7 @@ class NetworkApiServices extends BaseApiServices {
         return responseJson;
       default:
         throw Exception(
-            'Error ccoured while communicating with server ${response.statusCode}'); 
+            'Error ccoured while communicating with server ${response.statusCode}');
     }
   }
 }
