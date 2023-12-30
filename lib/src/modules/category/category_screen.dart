@@ -1,3 +1,5 @@
+import 'package:amar_dokan_app/src/modules/widgets/dokan_hishabee_text.dart';
+import 'package:amar_dokan_app/src/utils/colors.dart';
 import 'package:amar_dokan_app/src/utils/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -5,13 +7,28 @@ import 'package:simple_animation_transition/simple_animation_transition.dart';
 
 import '../../utils/app_space.dart';
 import '../global_widgets/menu_page_app_bar.dart';
+import 'providers/category_provider.dart';
 import 'widgets/top_container.dart';
 
-class CategoryScreen extends ConsumerWidget {
+class CategoryScreen extends ConsumerStatefulWidget {
   const CategoryScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<CategoryScreen> createState() => _CategoryScreenState();
+}
+
+class _CategoryScreenState extends ConsumerState<CategoryScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero).then(
+      (value) => ref.read(categoryProvider).getAllCategories(context: context),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var controller = ref.watch(categoryProvider);
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -26,14 +43,58 @@ class CategoryScreen extends ConsumerWidget {
               height: context.height,
               width: context.width,
               padding: const EdgeInsets.all(10),
-              child: const Column(
+              child: Column(
                 children: [
-                  CustomMenuAppBar(
+                  const CustomMenuAppBar(
                     logoUrl: 'assets/images/category.png',
                     title: "Categories",
                   ),
                   AppSpace.spaceH10,
-                  TopCardAddCategory(),
+                  const TopCardAddCategory(),
+                  Flexible(
+                    child: GridView.builder(
+                      itemCount: controller.categories.length,
+                      padding: const EdgeInsets.only(top: 20),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 5.0,
+                              mainAxisSpacing: 5.0),
+                      itemBuilder: (context, index) {
+                        var category = controller.categories[index];
+                        return Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Colors.grey[200],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const SizedBox(height: 10),
+                              SizedBox(
+                                height: 80,
+                                width: 80,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: Image.file(
+                                    category.imageFile!,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              DokanHishabeeTextWidget(
+                                text: category.name ?? "",
+                                color: AppColors.blackColor,
+                                fontSize: 20,
+                              )
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),

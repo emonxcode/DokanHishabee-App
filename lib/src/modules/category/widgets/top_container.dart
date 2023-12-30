@@ -59,7 +59,7 @@ class TopCardAddCategory extends ConsumerWidget {
               categoryNameController: controller.categoryNameTextController),
           AppSpace.spaceH20,
           CategorySaveButton(
-            isLoading: controller.isLoading,
+            isLoading: controller.isBtnLoading,
             onTap: () {
               FocusScope.of(context).unfocus();
               controller.createCategory(context: context);

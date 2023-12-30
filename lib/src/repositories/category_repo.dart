@@ -15,7 +15,7 @@ class CategoryRepository {
     }
   }
 
-  Future<dynamic> getCategories(dynamic data) async {
+  Future<dynamic> getCategories() async {
     try {
       dynamic response = await _apiServices.getApi(ApiUrl.categoryUrl);
 
