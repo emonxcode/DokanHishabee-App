@@ -1,10 +1,12 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
+
 class Category {
   int? id;
   String? name;
   String? img;
-  File? imageFile;
+  Image? imageFile;
   int? status;
 
   Category({this.id, this.name, this.img, this.status});

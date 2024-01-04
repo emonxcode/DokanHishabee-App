@@ -1,7 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
+import 'package:amar_dokan_app/src/modules/login/login_screen.dart';
 import 'package:amar_dokan_app/src/repositories/category_repo.dart';
+import 'package:amar_dokan_app/src/utils/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
@@ -17,7 +20,6 @@ class CategoryController extends ChangeNotifier {
   bool isDataLoading = false;
   CategoryRepository categoryRepository = CategoryRepository();
   var categoryNameTextController = TextEditingController();
-  var encodedBase64Image = "";
   File? imageFile;
 
   void setImageFile(File file) {
@@ -25,16 +27,19 @@ class CategoryController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void encodeImgToBase64(String path) {
-    final bytes = File(path).readAsBytesSync();
-    encodedBase64Image = base64Encode(bytes);
-  }
 
   Future createCategory({required BuildContext context}) async {
-    if (imageFile == null || categoryNameTextController.text.isEmpty) {
+    if (imageFile == null) {
       DokanSneakBar.customSnackBar(
         context: context,
-        snackText: "Please select image or provide category name!",
+        snackText: "Please select image.",
+        snackBackgroundColor: AppColors.redColor,
+      );
+      return;
+    }else if(categoryNameTextController.text.isEmpty){
+      DokanSneakBar.customSnackBar(
+        context: context,
+        snackText: "Please enter category name.",
         snackBackgroundColor: AppColors.redColor,
       );
       return;
@@ -45,12 +50,11 @@ class CategoryController extends ChangeNotifier {
     notifyListeners();
 
     try {
-      encodeImgToBase64(imageFile!.path);
       var data = {
         "name": categoryNameTextController.text,
-        "img": encodedBase64Image,
       };
-      response = await categoryRepository.createCategory(data);
+      
+      response = await categoryRepository.createCategory(data, imageFile!);
 
       if (response['success'] == true) {
         if (context.mounted) {
@@ -59,6 +63,7 @@ class CategoryController extends ChangeNotifier {
             snackText: response['message'],
             snackBackgroundColor: AppColors.greenColor,
           );
+          getAllCategories(context: context);
         }
       } else {
         if (context.mounted) {
@@ -94,16 +99,15 @@ class CategoryController extends ChangeNotifier {
       if (response['success'] == true) {
         categories.clear();
         for (var category in response['result']) {
-          var cat = Category.fromJson(category);
-          var bytes = base64.decode(cat.img!);
-          final directory = await getApplicationDocumentsDirectory();
-          var file = File('${directory.path}/testImage.png');
-          await file.writeAsBytes(List.from(bytes));
-
-          cat.imageFile = file;
-          categories.add(cat);
+          categories.add(Category.fromJson(category));
         }
       } else {
+        if (response['message'] == 'Unathorized!') {
+          if (context.mounted) {
+            context.pushAndRemoveUntil(const LoginScreen());
+          }
+          return;
+        }
         if (context.mounted) {
           DokanSneakBar.customSnackBar(
             context: context,
@@ -114,11 +118,15 @@ class CategoryController extends ChangeNotifier {
       }
     } catch (ex) {
       if (context.mounted) {
-        DokanSneakBar.customSnackBar(
-          context: context,
-          snackText: ex.toString(),
-          snackBackgroundColor: AppColors.redColor,
-        );
+        if (!ex
+            .toString()
+            .startsWith("FormatException: Invalid encoding before padding")) {
+          DokanSneakBar.customSnackBar(
+            context: context,
+            snackText: ex.toString(),
+            snackBackgroundColor: AppColors.redColor,
+          );
+        }
       }
     }
     isDataLoading = false;

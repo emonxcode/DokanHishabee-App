@@ -1,3 +1,5 @@
+import 'package:amar_dokan_app/src/constants/api_endpoints.dart';
+import 'package:amar_dokan_app/src/modules/category/models/category.dart';
 import 'package:amar_dokan_app/src/modules/widgets/dokan_hishabee_text.dart';
 import 'package:amar_dokan_app/src/utils/colors.dart';
 import 'package:amar_dokan_app/src/utils/extensions/extensions.dart';
@@ -52,54 +54,72 @@ class _CategoryScreenState extends ConsumerState<CategoryScreen> {
                   AppSpace.spaceH10,
                   const TopCardAddCategory(),
                   Flexible(
-                    child: GridView.builder(
-                      itemCount: controller.categories.length,
-                      padding: const EdgeInsets.only(top: 20),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 5.0,
-                              mainAxisSpacing: 5.0),
-                      itemBuilder: (context, index) {
-                        var category = controller.categories[index];
-                        return Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.grey[200],
+                    child: controller.isDataLoading
+                        ? const Center(child: CircularProgressIndicator())
+                        : GridView.builder(
+                            itemCount: controller.categories.length,
+                            padding: const EdgeInsets.only(top: 20),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 5.0,
+                                    mainAxisSpacing: 5.0),
+                            itemBuilder: (context, index) {
+                              var category = controller.categories[index];
+                              return CategoryItemView(category: category);
+                            },
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const SizedBox(height: 10),
-                              SizedBox(
-                                height: 80,
-                                width: 80,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: Image.file(
-                                    category.imageFile!,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              DokanHishabeeTextWidget(
-                                text: category.name ?? "",
-                                color: AppColors.blackColor,
-                                fontSize: 20,
-                              )
-                            ],
-                          ),
-                        );
-                      },
-                    ),
                   ),
                 ],
               ),
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CategoryItemView extends StatelessWidget {
+  const CategoryItemView({
+    super.key,
+    required this.category,
+  });
+
+  final Category category;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: Colors.grey[200],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(height: 10),
+          SizedBox(
+            height: 80,
+            width: 80,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Image.network(
+                ApiUrl.baseUrl + category.img!,
+                errorBuilder: (context, error, stackTrace) => const Center(
+                  child: Text("Error!"),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          DokanHishabeeTextWidget(
+            text: category.name ?? "",
+            color: AppColors.blackColor,
+            fontSize: 20,
+          ),
+        ],
       ),
     );
   }

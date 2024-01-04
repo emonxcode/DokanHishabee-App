@@ -78,26 +78,29 @@ class NetworkApiServices extends BaseApiServices {
     return responseJson;
   }
 
-  dynamic returnResponse(Response response) {
-    switch (response.statusCode) {
-      case 200:
-        dynamic responseJson = json.decode(response.body);
-        return responseJson;
-      case 400:
-        dynamic responseJson = json.decode(response.body);
-        return responseJson;
-      case 401:
-        dynamic responseJson = json.decode(response.body);
-        return responseJson;
-      case 500:
-        dynamic responseJson = json.decode(response.body);
-        return responseJson;
-      case 422:
-        dynamic responseJson = json.decode(response.body);
-        return responseJson;
-      default:
-        throw Exception(
-            'Error ccoured while communicating with server ${response.statusCode}');
-    }
+
+}
+
+
+dynamic returnResponse(Response response) {
+  switch (response.statusCode) {
+    case 200:
+      dynamic responseJson = json.decode(response.body);
+      return responseJson;
+    case 400:
+      dynamic responseJson = json.decode(response.body);
+      return responseJson;
+    case 401:
+      dynamic responseJson = json.decode(response.body);
+      return responseJson;
+    case 500:
+      dynamic responseJson = json.decode(response.body);
+      return responseJson;
+    case 422:
+      dynamic responseJson = json.decode(response.body);
+      return responseJson;
+    default:
+      throw Exception(
+          'Error ccoured while communicating with server ${response.statusCode}');
   }
 }

@@ -1,3 +1,4 @@
+import 'package:amar_dokan_app/src/local/shared_preference_helper.dart';
 import 'package:amar_dokan_app/src/utils/extensions/extensions.dart';
 import 'package:amar_dokan_app/src/modules/products/controller/products_provider.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,11 @@ class _ProductsScreenState extends ConsumerState<ProductsScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppSpace.spaceH4,
-                ProductPageAppBar(scaffolldKey: scaffolldKey),
+                InkWell(
+                    onTap: () {
+                      LocalData.setLoginFlag(false);
+                    },
+                    child: ProductPageAppBar(scaffolldKey: scaffolldKey)),
                 AppSpace.spaceH18,
                 const Row(
                   children: [
