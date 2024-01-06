@@ -6,7 +6,7 @@ import '../../../utils/app_space.dart';
 import '../../../utils/colors.dart';
 import '../../navigation/providers/side_navigation_provider.dart';
 import '../../category/category_screen.dart';
-import '../../units/units_screen.dart';
+import '../../units/views/units_screen.dart';
 
 class OptionsItemView extends ConsumerWidget {
   const OptionsItemView({

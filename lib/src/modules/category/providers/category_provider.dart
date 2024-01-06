@@ -27,7 +27,6 @@ class CategoryController extends ChangeNotifier {
     notifyListeners();
   }
 
-
   Future createCategory({required BuildContext context}) async {
     if (imageFile == null) {
       DokanSneakBar.customSnackBar(
@@ -36,7 +35,7 @@ class CategoryController extends ChangeNotifier {
         snackBackgroundColor: AppColors.redColor,
       );
       return;
-    }else if(categoryNameTextController.text.isEmpty){
+    } else if (categoryNameTextController.text.isEmpty) {
       DokanSneakBar.customSnackBar(
         context: context,
         snackText: "Please enter category name.",
@@ -53,7 +52,7 @@ class CategoryController extends ChangeNotifier {
       var data = {
         "name": categoryNameTextController.text,
       };
-      
+
       response = await categoryRepository.createCategory(data, imageFile!);
 
       if (response['success'] == true) {
@@ -69,7 +68,7 @@ class CategoryController extends ChangeNotifier {
         if (context.mounted) {
           DokanSneakBar.customSnackBar(
             context: context,
-            snackText: response['message'],
+            snackText: "Something went wrong!",
             snackBackgroundColor: AppColors.redColor,
           );
         }

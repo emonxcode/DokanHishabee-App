@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:amar_dokan_app/src/local/shared_preference_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 import '../constants/api_endpoints.dart';
 import '../service/network_api_service.dart';
@@ -12,7 +13,6 @@ class CategoryRepository {
   final _apiServices = NetworkApiServices();
 
   Future<dynamic> createCategory(dynamic data, File file) async {
-    
     try {
       var token = await LocalData.getToken();
       var request =
@@ -26,11 +26,9 @@ class CategoryRepository {
       ));
 
       var response = await request.send();
-      debugPrint(response.statusCode.toString());
-      var result = await response.stream.bytesToString();
-      debugPrint(result);
-      return json.decode(result);
+      return returnResponse(response);
     } catch (e) {
+      print(e.toString());
       return e;
     }
   }
@@ -43,5 +41,34 @@ class CategoryRepository {
     } catch (e) {
       return e;
     }
+  }
+}
+
+dynamic returnResponse(StreamedResponse response) async {
+  switch (response.statusCode) {
+    case 200:
+      var result = await response.stream.bytesToString();
+      dynamic responseJson = json.decode(result);
+      return responseJson;
+    case 400:
+      var result = await response.stream.bytesToString();
+      dynamic responseJson = json.decode(result);
+      print(responseJson.toString());
+      return responseJson;
+    case 401:
+      var result = await response.stream.bytesToString();
+      dynamic responseJson = json.decode(result);
+      return responseJson;
+    case 500:
+      var result = await response.stream.bytesToString();
+      dynamic responseJson = json.decode(result);
+      return responseJson;
+    case 422:
+      var result = await response.stream.bytesToString();
+      dynamic responseJson = json.decode(result);
+      return responseJson;
+    default:
+      throw Exception(
+          'Error ccoured while communicating with server ${response.statusCode}');
   }
 }

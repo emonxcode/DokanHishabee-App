@@ -26,7 +26,7 @@ class NetworkApiServices extends BaseApiServices {
         Uri.parse(url),
         headers: headers,
       );
-      responseJson = returnResponse(response);
+      responseJson = await returnResponse(response);
       debugPrint(response.body);
       debugPrint(response.statusCode.toString());
     } catch (e) {
@@ -55,14 +55,14 @@ class NetworkApiServices extends BaseApiServices {
       'Authorization': 'Bearer ${await LocalData.getToken()}',
     };
     debugPrint(await LocalData.getToken());
-    dynamic responseJson;
+    Map<String, dynamic> responseJson;
     try {
       http.Response response = await http.post(
         Uri.parse(url),
         headers: headers,
         body: json.encode(payload),
       );
-      responseJson = returnResponse(response);
+      responseJson = await returnResponse(response);
       debugPrint(response.body);
       debugPrint(response.statusCode.toString());
     } catch (e) {
@@ -77,10 +77,7 @@ class NetworkApiServices extends BaseApiServices {
 
     return responseJson;
   }
-
-
 }
-
 
 dynamic returnResponse(Response response) {
   switch (response.statusCode) {
