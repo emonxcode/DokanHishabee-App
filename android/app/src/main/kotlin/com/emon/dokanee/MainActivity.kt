@@ -1,4 +1,4 @@
-package com.emon.omicron.amar_dokan_app
+package com.emon.dokanee
 
 import io.flutter.embedding.android.FlutterActivity
 

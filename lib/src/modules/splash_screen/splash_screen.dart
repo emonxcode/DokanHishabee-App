@@ -61,15 +61,15 @@ class _SplashScreenState extends State<SplashScreen> {
                   height: 100,
                   width: 100,
                   child: Image.asset(
-                    "assets/logo/app_logo_round.png",
+                    "assets/images/dokanee.png",
                   ),
                 ),
                 AppSpace.spaceH18,
                 const DokanHishabeeTextWidget(
-                  text: "Dokan Hishabee - দোকান হিসাবী",
-                  fontSize: 15,
+                  text: "Dokanee",
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.primaryColor,
+                  color: AppColors.primaryTextColor,
                 ),
                 AppSpace.spaceH10,
                 // Text(
@@ -79,7 +79,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ],
             ),
           ),
-          Positioned(
+          const Positioned(
             bottom: 10,
             left: 10,
             right: 10,
@@ -87,17 +87,9 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 50,
-                    width: 50,
-                    child: Image.asset(
-                      "assets/logo/omicron.png",
-                    ),
-                  ),
-                  AppSpace.spaceW10,
                   Text(
-                    "Artix Studio",
-                    // style: Styles.pagetitle.copyWith(fontSize: 15),
+                    "v1.0.0",
+                    // style: Styles.defaultStyle,
                   ),
                 ],
               ),

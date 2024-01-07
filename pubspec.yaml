@@ -50,10 +50,11 @@ dev_dependencies:
   isar_generator: ^3.0.5
   build_runner: ^2.3.3
   riverpod_generator: ^2.3.5
+  change_app_package_name: ^1.1.0
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/logo/app_logo.png"
+  image_path: "assets/images/dokanee.png"
   min_sdk_android: 21
   flutter_lints: ^2.0.0
 

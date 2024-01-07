@@ -42,14 +42,15 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                     height: 100,
                     width: 100,
                     child: Image.asset(
-                      "assets/logo/app_logo_round.png",
+                      "assets/images/dokanee.png",
                     ),
                   ),
                   AppSpace.spaceH10,
                   const DokanHishabeeTextWidget(
-                    text: "Dokan Hishabee - দোকান হিসাবী",
-                    color: AppColors.primaryColor,
-                    fontSize: 18,
+                    text: "Dokanee",
+                    color: AppColors.primaryTextColor,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
                   ),
                   AppSpace.spaceH30,
                   const Align(
@@ -59,7 +60,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                       child: DokanHishabeeTextWidget(
                         text: "Mobile",
                         color: AppColors.darkGrey,
-                        fontSize: 18,
+                        fontSize: 15,
                       ),
                     ),
                   ),
@@ -85,7 +86,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                       child: DokanHishabeeTextWidget(
                         text: "Password",
                         color: AppColors.darkGrey,
-                        fontSize: 18,
+                        fontSize: 15,
                       ),
                     ),
                   ),
